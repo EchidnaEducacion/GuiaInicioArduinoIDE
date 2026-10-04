@@ -41,7 +41,30 @@ Si eliges otro procesador (por ejemplo, ATmega328P sin «Old Bootloader»), el p
 
 ## Estructura de un programa
 
-ESTRUCTURA SETUP/LOOP
+Un programa de Arduino se llama **sketch** y siempre tiene, como mínimo, dos **funciones**: `setup()` y `loop()`. Es lo que aparece cuando creas un programa nuevo en Arduino IDE:
+
+```arduino linenums="1"
+// aquí van las constantes y las variables
+
+void setup() {
+  // se ejecuta una sola vez, al encender la placa
+}
+
+void loop() {
+  // se repite una y otra vez, para siempre
+}
+```
+
+* **Antes de `setup()`**: declaramos las **constantes** (como los pines de los componentes) y las **variables** que usará el programa.
+* **`setup()`**: se ejecuta **una sola vez**, al encender la placa o al cargar el programa. La usamos para preparar la placa, por ejemplo, para indicar qué pines son entradas y cuáles salidas.
+* **`loop()`**: se ejecuta **una y otra vez**, de forma infinita, mientras la placa tenga alimentación. Aquí va lo que queremos que la placa haga continuamente: leer sensores, encender LED, hacer sonar el zumbador...
+
+Al escribir código, ten en cuenta estas reglas:
+
+* Cada instrucción termina con **punto y coma** (`;`).
+* Las **llaves** (`{` y `}`) marcan dónde empieza y dónde termina cada bloque de instrucciones, como el contenido de `setup()` o de `loop()`.
+* Arduino distingue entre **mayúsculas y minúsculas**: `digitalWrite` funciona, pero `digitalwrite` da error.
+* Lo que va detrás de `//` es un **comentario**: sirve para explicar el programa a las personas que lo leen y la placa no lo ejecuta.
 
 ## Cargar un programa en la placa
 
