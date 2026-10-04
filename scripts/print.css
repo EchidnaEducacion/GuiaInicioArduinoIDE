@@ -1,0 +1,334 @@
+/* Maquetación de site/proyectos-inicio-arduino.pdf. Pensada para WeasyPrint (CSS Paged Media),
+   no para el tema web: aquí se controla papel, saltos de página, cabeceras y
+   pies de página corriendo, y la numeración del índice.
+
+   Tipografía y color siguen la identidad de echidna.es (ver extra.css, que
+   aplica lo mismo a la web): Exo para titulares, Open Sans para el texto,
+   naranja de marca como acento. Solo tema claro: el PDF no tiene alternancia
+   de tema. El contenido de la página de inicio web (docs/index.md) no llega aquí:
+   build_pdf.py no incluye index.md entre las páginas del PDF. */
+
+@font-face {
+  font-family: "Exo";
+  font-weight: 700;
+  font-style: normal;
+  src: url(../docs/assets/fonts/Exo-Bold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 100 900;
+  font-style: normal;
+  src: url(../docs/assets/fonts/OpenSans.woff2) format("woff2-variations");
+}
+
+:root {
+  --echidna-orange: #e66a00;
+  --echidna-orange-light: #ff8f3d;
+  --echidna-orange-dark: #b85400;
+  --echidna-peach: #fff3ea;
+}
+
+@page {
+  size: A4;
+  margin: 30mm 20mm 22mm 20mm;
+
+  @top-left {
+    content: string(doc-title);
+    font-size: 8pt;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: #999;
+  }
+  @top-right {
+    /* El ancho + image-resolution fijan el tamaño real (15mm x 7.82mm);
+       "height" no afecta a ese tamaño, solo desplaza la caja para alinear
+       verticalmente el logo con el texto de "doc-title" en @top-left. */
+    content: url(../docs/assets/images/Logo_Echidna_I.png);
+    width: 15mm;
+    height: 29mm;
+    image-resolution: 3838dpi;
+  }
+  @bottom-left {
+    content: string(chapter-title);
+    font-size: 9pt;
+    color: #777;
+  }
+  @bottom-right {
+    content: counter(page);
+    font-size: 9pt;
+    color: #777;
+  }
+}
+
+@page :first {
+  margin: 0;
+  @top-left { content: none; }
+  @top-right { content: none; }
+  @bottom-left { content: none; }
+  @bottom-right { content: none; }
+}
+
+@page chapter {
+  @top-left {
+    content: string(doc-title);
+    font-size: 8pt;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: #999;
+  }
+  @top-right {
+    /* El ancho + image-resolution fijan el tamaño real (15mm x 7.82mm);
+       "height" no afecta a ese tamaño, solo desplaza la caja para alinear
+       verticalmente el logo con el texto de "doc-title" en @top-left. */
+    content: url(../docs/assets/images/Logo_Echidna_I.png);
+    width: 15mm;
+    height: 29mm;
+    image-resolution: 3838dpi;
+  }
+  @bottom-left {
+    content: string(chapter-title);
+    font-size: 9pt;
+    color: #777;
+  }
+  @bottom-right {
+    content: counter(page);
+    font-size: 9pt;
+    color: #777;
+  }
+}
+
+html {
+  font-family: "Open Sans", "Noto Sans", sans-serif;
+  font-size: 10.5pt;
+  color: #1b1b1b;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Exo", "Open Sans", sans-serif;
+  line-height: 1.25;
+  break-after: avoid-page;
+}
+
+h1 { font-size: 20pt; margin: 0 0 .6rem; }
+
+h2 {
+  font-size: 16pt;
+  margin: 1.4rem 0 .5rem;
+  padding-bottom: .2rem;
+  border-bottom: 1.5pt solid var(--echidna-orange-light);
+}
+
+h3 {
+  font-size: 13pt;
+  margin: 1.2rem 0 .4rem;
+  padding-bottom: .15rem;
+  border-bottom: 1pt solid var(--echidna-orange-light);
+}
+
+h4 { font-size: 11.5pt; margin: 1rem 0 .35rem; }
+
+p, ul, ol { margin: 0 0 .6rem; orphans: 3; widows: 3; }
+
+/* Las imágenes grandes dejaban páginas medio vacías; se limitan en el PDF
+   (la web las mantiene). Si una
+   imagen necesita otro tamaño, usa { width="N" } en el Markdown. */
+img {
+  max-width: 100%;
+  max-height: 95mm;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: .8rem auto;
+  break-inside: avoid-page;
+}
+
+/* Detalles con lupa ({ .img-lupa }): ancho fijo menor que la columna.
+   Hace falta una clase porque el width:auto de arriba anula { width="N" }. */
+img.img-lupa {
+  width: 100mm;
+  max-width: 100%;
+}
+
+/* Cabecera de cada proyecto ({ .img-cabecera }). */
+img.img-cabecera {
+  width: 80mm;
+  max-width: 100%;
+}
+
+/* Solo en la web ({ .solo-web }): GIF de proceso, que en el PDF solo
+   mostraría el primer fotograma. */
+img.solo-web { display: none; }
+
+/* Pestañas (=== "..."): en el PDF no hay pestañas; se ocultan los
+   controles y se ve el contenido de cada una (el GIF ya va con .solo-web). */
+.tabbed-set > input,
+.tabbed-labels,
+.tabbed-control { display: none; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9pt;
+  margin: .6rem 0 .9rem;
+  break-inside: avoid-page;
+}
+
+table, th, td { border: 1px solid #ccc; }
+th, td { padding: .3rem .5rem; text-align: left; }
+thead th { background: var(--echidna-peach); }
+
+pre {
+  background: var(--echidna-peach);
+  border-radius: 4px;
+  margin: .6rem 0 .9rem;
+  padding: .6rem .8rem;
+  break-inside: avoid-page;
+  overflow-wrap: break-word;
+}
+
+pre code {
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  font-size: 9pt;
+  white-space: pre-wrap;
+}
+
+figure, table, img { break-inside: avoid-page; }
+
+/* Pares imagen+imagen o imagen+texto (conexiones, detalles con lupa):
+   más pequeñas y en fila en vez de a todo el ancho de página. */
+.img-row,
+.img-text-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: .8rem 0;
+  break-inside: avoid-page;
+}
+
+.img-row p,
+.img-text-row p {
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.img-row img,
+.img-text-row img {
+  width: auto;
+  max-width: 100%;
+  margin: 0;
+}
+
+.img-row p,
+.img-text-row p:first-child {
+  max-width: 45%;
+}
+
+.img-text-row p:last-child {
+  flex: 1 1 45%;
+  text-align: left;
+}
+
+a { color: var(--echidna-orange-dark); text-decoration: underline; }
+
+/* Portada: maquetada con HTML (ver render_cover en build_pdf.py), sin
+   ilustración de página completa como la del manual. */
+#cover {
+  page: cover;
+  box-sizing: border-box;
+  width: 210mm;
+  height: 297mm;
+  padding: 28mm 22mm 20mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--echidna-peach);
+  border-top: 14mm solid var(--echidna-orange);
+}
+
+#cover .cover-logo {
+  width: 55mm;
+  margin: 0 auto 22mm;
+}
+
+/* El <h1> de la portada fija además el string-set de doc-title para la
+   cabecera del resto de páginas del PDF (ver @page más arriba). */
+#cover h1 {
+  font-size: 34pt;
+  color: var(--echidna-orange-dark);
+  margin: 0 0 .8rem;
+  string-set: doc-title content();
+}
+
+#cover .cover-subtitle {
+  font-size: 14pt;
+  color: #555;
+  margin: 0 auto;
+  max-width: 130mm;
+}
+
+/* Marcador de la imagen de portada, pendiente del autor. */
+#cover .cover-image-pendiente {
+  margin: 30mm auto 0;
+  font-size: 14pt;
+  color: #999;
+}
+
+#cover .cover-author {
+  margin-top: auto;
+  padding-top: 10mm;
+  font-family: "Exo", "Open Sans", sans-serif;
+  font-size: 12pt;
+  color: var(--echidna-orange-dark);
+}
+
+@page cover {
+  margin: 0;
+  @bottom-center { content: none; }
+}
+
+/* Índice */
+#toc {
+  break-before: page;
+  page: chapter;
+}
+
+#toc h1 { margin-bottom: 1.2rem; }
+
+.toc-list { list-style: none; margin: 0; padding: 0; }
+
+.toc-list li {
+  margin: .3rem 0;
+  break-inside: avoid-page;
+}
+
+.toc-depth-0 { font-weight: 700; margin-top: .9rem; }
+.toc-depth-1 { margin-left: 1.4rem; font-weight: 400; }
+
+.toc-list a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.toc-list a::after {
+  content: leader(dotted) target-counter(attr(href), page);
+}
+
+/* Capítulos: cada sección de profundidad 0 o 1 empieza en página nueva */
+section.depth-0,
+section.depth-1 {
+  break-before: page;
+  page: chapter;
+}
+
+section.depth-0 > h1 {
+  string-set: chapter-title content();
+}

@@ -1,0 +1,153 @@
+/* Identidad visual de Echidna Educación aplicada al tema de Zensical.
+   Paleta y tipografía tomadas de https://echidna.es/ para que el manual se
+   sienta parte del mismo proyecto en vez de un sitio de documentación
+   genérico. */
+
+@import url("https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+
+:root {
+  --md-text-font: "Open Sans";
+  --md-echidna-orange: #e66a00;
+  --md-echidna-orange--light: #ff8f3d;
+  --md-echidna-orange--dark: #b85400;
+  --md-echidna-peach: #fff3ea;
+  --md-echidna-blue: #0091eb;
+
+  /* Ajusta el naranja "deep orange" de serie al naranja exacto de marca. */
+  --md-primary-fg-color: var(--md-echidna-orange);
+  --md-primary-fg-color--light: var(--md-echidna-orange--light);
+  --md-primary-fg-color--dark: var(--md-echidna-orange--dark);
+}
+
+/* Tipografía de titulares: Exo (la misma familia que usa echidna.es),
+   Open Sans se mantiene para el texto general vía theme.font. */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-nav__title,
+.md-header__topic {
+  font-family: "Exo", var(--md-text-font);
+}
+
+.md-typeset {
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+.md-typeset h1 {
+  font-weight: 700;
+}
+
+.md-typeset h2 {
+  border-bottom: 2px solid var(--md-echidna-orange--light);
+  padding-bottom: 0.25rem;
+}
+
+.md-typeset img {
+  display: block;
+  height: auto;
+  margin: 1.25rem auto;
+  max-width: min(100%, 62rem);
+  border-radius: 6px;
+}
+
+.md-typeset table:not([class]) {
+  display: table;
+  width: 100%;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: var(--md-echidna-peach);
+}
+
+.md-typeset code {
+  border-radius: 4px;
+}
+
+.md-typeset pre > code {
+  border-radius: 8px;
+}
+
+/* El tema solo pone en negrita los apartados de nivel superior que tienen
+   subapartados (navigation.sections). Los apartados de una sola página
+   (p. ej. "1. Introducción" o "9. Preguntas frecuentes") deben verse igual
+   de destacados en el índice lateral. */
+.md-nav--primary[data-md-level="0"] > .md-nav__list > .md-nav__item:not(:first-child) > .md-nav__link {
+  font-weight: 700;
+}
+
+/* Pares imagen+imagen o imagen+texto, para fotos de tamaño de referencia
+   (conexiones, detalles con lupa) que no necesitan ocupar todo el ancho. */
+.md-typeset .img-row,
+.md-typeset .img-text-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 1.25rem 0;
+}
+
+.md-typeset .img-row {
+  justify-content: center;
+}
+
+.md-typeset .img-row img,
+.md-typeset .img-text-row img {
+  margin: 0 auto;
+  flex: 0 0 auto;
+}
+
+.md-typeset .img-text-row p {
+  margin: 0;
+  flex: 1 1 260px;
+}
+
+/* Detalles con lupa: más estrechas que la columna para no dominar la página. */
+.md-typeset img.img-lupa {
+  max-width: min(100%, 26rem);
+}
+
+/* Imagen de cabecera de cada proyecto (600x300): decorativa, no debe
+   ocupar la primera pantalla entera. */
+.md-typeset img.img-cabecera {
+  max-width: min(100%, 18rem);
+}
+
+@media (max-width: 600px) {
+  .md-typeset .img-row,
+  .md-typeset .img-text-row {
+    flex-direction: column;
+  }
+}
+
+/* Título accesible de la portada: el propio dibujo de Portada_Web_Echidna.jpg ya
+   incluye el título como parte de la ilustración, así que el <h1> real
+   (necesario para accesibilidad y SEO) se mantiene en el documento pero
+   oculto visualmente para no repetirlo en pantalla. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Botón de descarga del PDF, más visible que un enlace suelto. */
+.md-typeset .md-button {
+  border-radius: 8px;
+}
+
+.md-typeset .md-button--primary {
+  background-color: var(--md-echidna-orange);
+  border-color: var(--md-echidna-orange);
+}
+
+.md-typeset .md-button--primary:hover {
+  background-color: var(--md-echidna-orange--dark);
+  border-color: var(--md-echidna-orange--dark);
+}

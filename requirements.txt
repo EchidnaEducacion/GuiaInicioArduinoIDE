@@ -1,0 +1,7 @@
+zensical>=0.0.22,<1.0
+weasyprint>=62,<70
+lxml>=5.0,<6.0
+# WeasyPrint no la declara como dependencia, pero la necesita para decodificar
+# los .woff2 de scripts/print.css (Exo, Open Sans); sin ella, @font-face falla
+# en silencio y el PDF cae a la fuente por defecto.
+brotli>=1.1
