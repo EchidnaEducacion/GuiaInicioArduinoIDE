@@ -90,12 +90,12 @@ cada publicación, por lo que queda disponible en
 
 ## Comprobar los programas
 
-Cada programa debe compilar para Arduino Nano con
+Cada programa debe compilar para Arduino Nano (ATmega328P, Old Bootloader) con
 [arduino-cli](https://arduino.github.io/arduino-cli/):
 
 ```bash
 arduino-cli core install arduino:avr
-arduino-cli compile --fqbn arduino:avr:nano <carpeta-del-programa>
+arduino-cli compile --fqbn arduino:avr:nano:cpu=atmega328old <carpeta-del-programa>
 ```
 
 ## Licencia

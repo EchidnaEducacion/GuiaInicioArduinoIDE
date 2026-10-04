@@ -16,7 +16,18 @@ INSTALACIÓN DE ARDUINO IDE
 
 ## Conectar la placa
 
-PLACA, PROCESADOR, BOOTLOADER Y PUERTO EN ARDUINO IDE
+Conecta la EchidnaBlack2 al ordenador con el cable **USB-C** y abre Arduino IDE. Antes de cargar un programa tienes que decirle al IDE **qué placa** vas a programar y **a qué puerto** está conectada. En el menú **Herramientas** elige:
+
+* **Placa:** Arduino AVR Boards → **Arduino Nano**.
+* **Procesador:** **ATmega328P (Old Bootloader)**.
+* **Puerto:** el puerto USB al que está conectada la placa. Su nombre depende del sistema operativo y el número puede variar según los dispositivos que tengas conectados:
+    * GNU/Linux: `/dev/ttyUSB0`
+    * Windows: `COM3`
+    * macOS: `/dev/cu.usbserial-1410`
+
+IMAGEN PLACA, PROCESADOR Y PUERTO
+
+Si eliges otro procesador (por ejemplo, ATmega328P sin «Old Bootloader»), el programa no se cargará en la placa y el IDE mostrará un error.
 
 ## Estructura de un programa
 

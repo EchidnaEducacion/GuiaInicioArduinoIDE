@@ -94,7 +94,7 @@ alumnado que empiezan con la placa.
 - Los pines, la placa, el procesador y el bootloader salen de la tabla de
   la introducción, que da el autor: no los inventes.
 - Cada programa (y cada **Ayuda**) debe compilar:
-  `arduino-cli compile --fqbn arduino:avr:nano <carpeta>` (el `.ino` debe
+  `arduino-cli compile --fqbn arduino:avr:nano:cpu=atmega328old <carpeta>` (el `.ino` debe
   llamarse como su carpeta).
 
 ## Estructura del repositorio
