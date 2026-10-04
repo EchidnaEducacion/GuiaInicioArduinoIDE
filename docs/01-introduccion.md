@@ -91,19 +91,23 @@ Si la carga falla, revisa que:
 
 Cada componente de la placa está conectado a un **pin** del microcontrolador. En los programas usaremos estos números para indicar con qué componente queremos trabajar:
 
-| Componente | Pin |
-|---|---|
-| LED rojo | D13 |
-| LED naranja | D12 |
-| LED verde | D11 |
-| LED RGB: rojo / verde / azul | D9 / D5 / D6 (PWM) |
-| Zumbador | D10 |
-| Pulsador SR (derecho) | D2 |
-| Pulsador SL (izquierdo) | D3 |
-| Joystick: eje X / eje Y | A0 / A1 |
-| Sensor de luz (LDR) | A3 |
-| Sensor de temperatura | A6 |
-| Micrófono | A7 |
-| Acelerómetro | I2C: A4 (SDA) / A5 (SCL) |
+| Componente | Pin | Tipo |
+|---|---|---|
+| LED rojo | D13 | Digital |
+| LED naranja | D12 | Digital |
+| LED verde | D11 | Digital |
+| LED RGB: rojo / verde / azul | D9 / D5 / D6 | Digital/Analógico |
+| Zumbador | D10 | Digital/Analógico |
+| Pulsador SR (derecho) | D2 | Digital |
+| Pulsador SL (izquierdo) | D3 | Digital |
+| Joystick: eje X / eje Y | A0 / A1 | Analógico |
+| Sensor de luz (LDR) | A3 | Analógico |
+| Sensor de temperatura | A6 | Analógico |
+| Micrófono | A7 | Analógico |
+| Acelerómetro | I2C: A4 (SDA) / A5 (SCL) | Digital |
+
+* **Digital**: solo trabaja con dos valores, encendido o apagado (`HIGH` o `LOW`).
+* **Analógico**: lee valores intermedios, entre `0` y `1023`, como la cantidad de luz o la posición del joystick.
+* **Digital/Analógico**: es un pin digital que, además, puede dar valores intermedios, entre `0` y `255`, por **PWM** (modulación por ancho de pulso). Así podemos regular el brillo del LED RGB o hacer sonar el zumbador.
 
 En el código, los pines digitales se escriben solo con su número (`13`) y los analógicos con la letra A (`A3`).
