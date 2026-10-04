@@ -3,7 +3,7 @@
 Proyectos sencillos para iniciarse en la programación de la placa
 EchidnaBlack2 con Arduino IDE (C/C++). Se publican como sitio web estático
 con [Zensical](https://zensical.org/) en
-<https://echidnaeducacion.github.io/GuiaInicioArduino/> y como PDF maquetado
+<https://echidnaeducacion.github.io/GuiaInicioArduinoIDE/> y como PDF maquetado
 con [WeasyPrint](https://weasyprint.org/), con la misma estrategia que el
 [manual de EchidnaBlack y EchidnaML](https://github.com/EchidnaEducacion/manual)
 y que [Proyectos de inicio con EchidnaML](https://github.com/EchidnaEducacion/GuiaInicioEchidnaML).

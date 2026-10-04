@@ -2,7 +2,7 @@
 site_name = "Proyectos de inicio con Arduino"
 site_description = "Proyectos sencillos para iniciarse con Arduino IDE y la placa EchidnaBlack2"
 site_author = "Echidna Educación"
-site_url = "https://echidnaeducacion.github.io/GuiaInicioArduino/"
+site_url = "https://echidnaeducacion.github.io/GuiaInicioArduinoIDE/"
 copyright = "Contenido bajo licencia CC BY-SA 4.0"
 docs_dir = "docs"
 site_dir = "site"

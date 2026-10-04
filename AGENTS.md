@@ -7,7 +7,7 @@ Instrucciones para agentes de IA (Claude Code y similares) que trabajen en este 
 **Proyectos de inicio con Arduino**: proyectos sencillos para programar la
 placa **EchidnaBlack2** con **Arduino IDE** (código C/C++), publicados con
 [Zensical](https://zensical.org/) como sitio estático
-(<https://echidnaeducacion.github.io/GuiaInicioArduino/>) y como PDF. Es el
+(<https://echidnaeducacion.github.io/GuiaInicioArduinoIDE/>) y como PDF. Es el
 equivalente de «Proyectos de inicio con EchidnaML»
 (<https://github.com/EchidnaEducacion/GuiaInicioEchidnaML>), que programa la
 placa con bloques, y sigue la misma estrategia (configuración, scripts y
