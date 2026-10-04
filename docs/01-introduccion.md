@@ -12,7 +12,17 @@ Si quieres ampliar información, consulta el [Manual de EchidnaML y EchidnaBlack
 
 ## Instalar Arduino IDE
 
-INSTALACIÓN DE ARDUINO IDE
+**Arduino IDE** es el programa en el que escribimos el código y desde el que lo cargamos en la placa. Es gratuito y funciona en GNU/Linux, Windows y macOS.
+
+1. Descarga la última versión de **Arduino IDE 2** desde la página oficial: [www.arduino.cc/en/software](https://www.arduino.cc/en/software/). Elige la descarga para tu sistema operativo.
+2. Instálalo como cualquier otro programa. Si necesitas ayuda, consulta la [guía de instalación de Arduino](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started-ide-v2/).
+3. Abre Arduino IDE. La primera vez puede tardar un poco porque descarga algunos componentes.
+
+IMAGEN ENTORNO ARDUINO IDE
+
+La placa se comunica con el ordenador mediante el chip **CH340**. En GNU/Linux no hace falta instalar nada; en Windows y macOS, si el ordenador no reconoce la placa al conectarla, instala su controlador (driver). Encontrarás los enlaces de descarga en las [preguntas frecuentes del manual](https://echidnaeducacion.github.io/manual/09-preguntas-frecuentes/).
+
+En GNU/Linux, si Arduino IDE no puede acceder al puerto de la placa, da permiso a tu usuario desde una terminal con `sudo usermod -a -G dialout $USER` y vuelve a iniciar sesión.
 
 ## Conectar la placa
 
