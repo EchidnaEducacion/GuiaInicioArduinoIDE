@@ -213,8 +213,8 @@ pre code {
 pre a { color: inherit; text-decoration: none; }
 
 /* El párrafo que presenta un bloque de código («Ayuda:», «Escribe el
-   siguiente código...») va en la misma página que el código (build_pdf.py
-   marca los párrafos). */
+   siguiente código...») o una tabla va en la misma página que ellos
+   (build_pdf.py marca los párrafos). */
 p.keep-with-next { break-after: avoid; }
 .linenos::before {
   content: attr(data-linenos);
