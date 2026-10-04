@@ -41,6 +41,17 @@ python -m pip install -r requirements.txt
 zensical serve
 ```
 
+Si tu sistema no tiene Python 3.11 o superior (por ejemplo, Ubuntu 22.04),
+puedes crear el entorno con [uv](https://docs.astral.sh/uv/), que descarga
+el Python necesario sin tocar el del sistema:
+
+```bash
+uv venv --python 3.12 .venv
+uv pip install --python .venv -r requirements.txt
+source .venv/bin/activate
+zensical serve
+```
+
 En Windows, active el entorno con `.venv\Scripts\activate`.
 La terminal mostrará la dirección local de la vista previa.
 

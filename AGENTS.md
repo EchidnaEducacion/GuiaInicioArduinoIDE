@@ -124,6 +124,10 @@ zensical build --clean
 python scripts/build_pdf.py
 ```
 
+Si el Python del sistema es anterior a 3.11 (Ubuntu 22.04), crea el entorno
+con uv: `uv venv --python 3.12 .venv` y
+`uv pip install --python .venv -r requirements.txt`.
+
 Revisa la web (`zensical serve`) y el PDF: imágenes visibles, listas y
 bloques de código bien formados y posición correcta en la navegación.
 
