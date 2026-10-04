@@ -28,4 +28,21 @@ CARGAR UN PROGRAMA
 
 ## Pines de la EchidnaBlack2
 
-TABLA DE PINES
+Cada componente de la placa está conectado a un **pin** del microcontrolador. En los programas usaremos estos números para indicar con qué componente queremos trabajar:
+
+| Componente | Pin |
+|---|---|
+| LED rojo | D13 |
+| LED naranja | D12 |
+| LED verde | D11 |
+| LED RGB: rojo / verde / azul | D9 / D5 / D6 (PWM) |
+| Zumbador | D10 |
+| Pulsador SR (derecho) | D2 |
+| Pulsador SL (izquierdo) | D3 |
+| Joystick: eje X / eje Y | A0 / A1 |
+| Sensor de luz (LDR) | A3 |
+| Sensor de temperatura | A6 |
+| Micrófono | A7 |
+| Acelerómetro | I2C: A4 (SDA) / A5 (SCL) |
+
+En el código, los pines digitales se escriben solo con su número (`13`) y los analógicos con la letra A (`A3`).
