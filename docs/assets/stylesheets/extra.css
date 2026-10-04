@@ -166,7 +166,7 @@
 }
 
 [data-md-color-scheme="default"] .md-typeset .language-arduino .kr { color: #00979d; }
-[data-md-color-scheme="default"] .md-typeset .language-arduino .nb { color: #5e6d03; }
+[data-md-color-scheme="default"] .md-typeset .language-arduino :is(.nb, .k) { color: #5e6d03; }
 [data-md-color-scheme="default"] .md-typeset .language-arduino .nf { color: #d35400; }
 [data-md-color-scheme="default"] .md-typeset .language-arduino :is(.c, .c1, .cm) { color: #95a5a6; }
 [data-md-color-scheme="default"] .md-typeset .language-arduino :is(.s, .s1, .s2, .sc) { color: #005c5f; }

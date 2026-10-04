@@ -206,11 +206,16 @@ pre code {
 }
 .language-arduino pre code { color: #434f54; }
 .language-arduino .kr { color: #00979d; }
-.language-arduino .nb { color: #5e6d03; }
+.language-arduino .nb, .language-arduino .k { color: #5e6d03; }
 .language-arduino .nf { color: #d35400; }
 .language-arduino .c, .language-arduino .c1, .language-arduino .cm { color: #95a5a6; }
 .language-arduino .s, .language-arduino .s1, .language-arduino .s2, .language-arduino .sc { color: #005c5f; }
 pre a { color: inherit; text-decoration: none; }
+
+/* El párrafo que presenta un bloque de código («Ayuda:», «Escribe el
+   siguiente código...») va en la misma página que el código (build_pdf.py
+   marca los párrafos). */
+p.keep-with-next { break-after: avoid; }
 .linenos::before {
   content: attr(data-linenos);
   color: #95a5a6;

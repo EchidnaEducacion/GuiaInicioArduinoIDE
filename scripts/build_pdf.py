@@ -78,6 +78,15 @@ def render_page(depth, md_path, url_to_id):
         # estilo en línea para que el PDF mida lo mismo que la web.
         img.set("style", f"width: {img.get('width')}px; height: auto;")
 
+    for block in article.xpath(".//div[contains(concat(' ', @class, ' '), ' highlight ')]"):
+        # El párrafo que presenta un bloque de código debe quedar en la misma
+        # página que el código. WeasyPrint no admite :has() ni selectores
+        # hacia atrás, así que marcamos aquí el párrafo (ver .keep-with-next
+        # en print.css).
+        previous = block.getprevious()
+        if previous is not None and previous.tag == "p":
+            previous.set("class", f"{previous.get('class', '')} keep-with-next".strip())
+
     for el in article.xpath(".//*[@id]"):
         el.set("id", f"{page_id}--{el.get('id')}")
 

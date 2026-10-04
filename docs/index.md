@@ -15,6 +15,7 @@ Antes de empezar, lee la [Introducción](01-introduccion.md): qué es la Echidna
 [Proyectos](02-arduino/index.md) para programar la placa en C/C++ con Arduino IDE, presentando un componente nuevo en cada uno:
 
 1. [Hola Mundo](02-arduino/01-hola-mundo.md)
+2. [Semáforo](02-arduino/02-semaforo.md)
 
 ## 3. Licencia
 
