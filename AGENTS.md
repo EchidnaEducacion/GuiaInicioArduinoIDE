@@ -32,13 +32,17 @@ alumnado que empiezan con la placa.
   proyecto (con su nombre entre comillas invertidas y sus parámetros
   explicados). Las que ya se presentaron en proyectos anteriores no se
   vuelven a explicar.
-- **Programamos (2)**: el programa completo en un bloque ```` ```cpp ```` y
+- **Programamos (2)**: el programa completo en un bloque
+  ```` ```arduino linenums="1" ```` y
   después **Cómo funciona**, explicado por partes (variables y constantes,
   `setup()`, `loop()`...).
 - **Mejóralo (3)**: tres propuestas numeradas, de menos a más difícil. Cada
   una termina con **Pista:** (información sobre cómo hacerlo: una función,
   un valor, una idea) y **Ayuda:** (el código de la solución, en bloque
-  ```` ```cpp ```` sangrado 4 espacios dentro de la lista).
+  ```` ```arduino ```` sangrado 4 espacios dentro de la lista). Si la
+  Ayuda solo cambia una parte (por ejemplo, `loop()`), basta con esa parte
+  sin números de línea; si es un programa completo, con
+  `linenums="1"`.
 - **Introducción**: cómo instalar y abrir Arduino IDE, su entorno, la
   elección de placa y puerto, la estructura `setup()`/`loop()`, cómo cargar
   un programa y la tabla de pines de la placa se explican **solo** en
@@ -82,8 +86,11 @@ alumnado que empiezan con la placa.
 
 ## Reglas del código
 
-- Bloques con ```` ```cpp ````; el programa de `## 2. Programamos` va
-  completo, listo para copiar y cargar.
+- Bloques con ```` ```arduino ```` (lexer `arduino` de Pygments): colorea
+  tipos, funciones y `setup`/`loop` como Arduino IDE (colores del tema
+  claro del IDE en `extra.css` y `print.css`). Los programas completos
+  llevan `linenums="1"`, y **Cómo funciona** puede citar líneas. El
+  programa de `## 2. Programamos` va completo, listo para copiar y cargar.
 - Comentarios en español, breves, que expliquen la intención.
 - Nombres de variables claros en español y en camelCase (`ledRojo`,
   `valorLuz`, `umbral`).
@@ -93,7 +100,8 @@ alumnado que empiezan con la placa.
   I2C); si se usan, se explica cómo instalarlas.
 - Los pines, la placa, el procesador y el bootloader salen de la tabla de
   la introducción, que da el autor: no los inventes.
-- Cada programa (y cada **Ayuda**) debe compilar:
+- Cada programa (y cada **Ayuda**, insertada en el programa completo)
+  debe compilar:
   `arduino-cli compile --fqbn arduino:avr:nano:cpu=atmega328old <carpeta>` (el `.ino` debe
   llamarse como su carpeta).
 

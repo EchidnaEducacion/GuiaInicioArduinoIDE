@@ -11,7 +11,8 @@ nav = [
   {"Inicio" = "index.md"},
   {"1. Introducción" = "01-introduccion.md"},
   {"2. Proyectos con Arduino" = [
-    "02-arduino/index.md"
+    "02-arduino/index.md",
+    {"2.1 Hola Mundo" = "02-arduino/01-hola-mundo.md"}
   ]},
   {"3. Licencia" = "03-licencia.md"}
 ]
@@ -58,6 +59,8 @@ name = "Cambiar a modo claro"
 [project.markdown_extensions.md_in_html]
 [project.markdown_extensions.pymdownx.highlight]
 anchor_linenums = true
+linenums_style = "pymdownx-inline"
+pygments_lang_class = true
 [project.markdown_extensions.pymdownx.inlinehilite]
 [project.markdown_extensions.pymdownx.superfences]
 [project.markdown_extensions.pymdownx.tabbed]

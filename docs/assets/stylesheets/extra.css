@@ -151,3 +151,24 @@
   background-color: var(--md-echidna-orange--dark);
   border-color: var(--md-echidna-orange--dark);
 }
+
+/* Código Arduino (```arduino): colores del tema claro de Arduino IDE, para
+   que el programa se vea como en el editor. Solo en modo claro; el modo
+   oscuro mantiene los colores del tema. */
+[data-md-color-scheme="default"] .md-typeset .language-arduino {
+  --md-code-bg-color: #ffffff;
+  --md-code-fg-color: #434f54;
+}
+
+[data-md-color-scheme="default"] .md-typeset .language-arduino pre {
+  border: 1px solid #dae3e3;
+  border-radius: 8px;
+}
+
+[data-md-color-scheme="default"] .md-typeset .language-arduino .kr { color: #00979d; }
+[data-md-color-scheme="default"] .md-typeset .language-arduino .nb { color: #5e6d03; }
+[data-md-color-scheme="default"] .md-typeset .language-arduino .nf { color: #d35400; }
+[data-md-color-scheme="default"] .md-typeset .language-arduino :is(.c, .c1, .cm) { color: #95a5a6; }
+[data-md-color-scheme="default"] .md-typeset .language-arduino :is(.s, .s1, .s2, .sc) { color: #005c5f; }
+[data-md-color-scheme="default"] .md-typeset .language-arduino :is(.mi, .mf, .n, .o, .p) { color: #434f54; }
+[data-md-color-scheme="default"] .md-typeset .language-arduino .linenos { color: #95a5a6; }

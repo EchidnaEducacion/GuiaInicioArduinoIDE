@@ -4,7 +4,7 @@ En estos proyectos programamos la placa **EchidnaBlack2** con **Arduino IDE**, e
 
 ## Proyectos
 
-LISTA DE PROYECTOS
+1. [Hola Mundo](01-hola-mundo.md)
 
 ## Estructura de los proyectos
 

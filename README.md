@@ -19,6 +19,8 @@ Arduino IDE, conexión de la placa, estructura de un programa y pines.
 
 [Presentación de la sección](docs/02-arduino/index.md).
 
+1. [Hola Mundo](docs/02-arduino/01-hola-mundo.md)
+
 ### 3. Licencia
 
 [Licencia](docs/03-licencia.md).

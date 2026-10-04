@@ -12,7 +12,9 @@ Antes de empezar, lee la [Introducción](01-introduccion.md): qué es la Echidna
 
 ## 2. Proyectos con Arduino
 
-[Proyectos](02-arduino/index.md) para programar la placa en C/C++ con Arduino IDE, presentando un componente nuevo en cada uno.
+[Proyectos](02-arduino/index.md) para programar la placa en C/C++ con Arduino IDE, presentando un componente nuevo en cada uno:
+
+1. [Hola Mundo](02-arduino/01-hola-mundo.md)
 
 ## 3. Licencia
 
