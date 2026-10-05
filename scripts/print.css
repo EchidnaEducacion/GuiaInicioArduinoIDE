@@ -299,11 +299,10 @@ a { color: var(--echidna-orange-dark); text-decoration: underline; }
   max-width: 130mm;
 }
 
-/* Marcador de la imagen de portada, pendiente del autor. */
-#cover .cover-image-pendiente {
-  margin: 30mm auto 0;
-  font-size: 14pt;
-  color: #999;
+/* Imagen de portada (provisional, a la espera de la ilustración definitiva). */
+#cover .cover-image {
+  width: 150mm;
+  margin: 22mm auto 0;
 }
 
 #cover .cover-author {

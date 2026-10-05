@@ -125,10 +125,11 @@ def render_page(depth, md_path, url_to_id):
 
 def render_cover(site_title, site_author):
     logo = (SITE_DIR / "assets/images/Logo_Echidna_I.png").resolve().as_uri()
+    portada = (SITE_DIR / "assets/images/Portada_erizo_Arduino.png").resolve().as_uri()
     # A diferencia del manual, este recurso no tiene una ilustración de portada
-    # propia: la portada se maqueta con HTML + print.css (logo, título,
-    # imagen y autoría). La imagen está pendiente: hasta tenerla se muestra el
-    # marcador IMAGEN PORTADA. El <h1> fija además el string-set de doc-title
+    # de página completa: la portada se maqueta con HTML + print.css (logo,
+    # título, imagen y autoría). La imagen es provisional, a la espera de la
+    # ilustración definitiva. El <h1> fija además el string-set de doc-title
     # que aparece en la cabecera del resto de páginas.
     return f"""
 <section id="cover">
@@ -137,7 +138,7 @@ def render_cover(site_title, site_author):
     <h1>{site_title}</h1>
     <p class="cover-subtitle">Primeros pasos con la placa EchidnaBlack2 y Arduino IDE</p>
   </div>
-  <p class="cover-image-pendiente">IMAGEN PORTADA</p>
+  <img class="cover-image" src="{portada}" alt="Erizo de Echidna con antifaz de Arduino">
   <p class="cover-author">{site_author}</p>
 </section>
 """

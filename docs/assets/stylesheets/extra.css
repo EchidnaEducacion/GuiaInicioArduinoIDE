@@ -114,6 +114,12 @@
   max-width: min(100%, 18rem);
 }
 
+/* Imagen de la página de inicio (provisional, a la espera de la ilustración
+   definitiva). */
+.md-typeset img.img-portada {
+  max-width: min(100%, 30rem);
+}
+
 @media (max-width: 600px) {
   .md-typeset .img-row,
   .md-typeset .img-text-row {
