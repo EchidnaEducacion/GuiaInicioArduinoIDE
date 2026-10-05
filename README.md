@@ -27,6 +27,7 @@ Arduino IDE, conexión de la placa, estructura de un programa y pines.
 6. [Piano de frutas](docs/02-arduino/06-piano-de-frutas.md)
 7. [El echidna dice la temperatura](docs/02-arduino/07-echidna-dice-temperatura.md)
 8. [Mezclamos colores](docs/02-arduino/08-mezclamos-colores.md)
+9. [Vúmetro](docs/02-arduino/09-vumetro.md)
 
 ### 3. Licencia
 

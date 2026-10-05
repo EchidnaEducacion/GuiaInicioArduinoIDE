@@ -22,6 +22,7 @@ Antes de empezar, lee la [Introducción](01-introduccion.md): qué es la Echidna
 6. [Piano de frutas](02-arduino/06-piano-de-frutas.md)
 7. [El echidna dice la temperatura](02-arduino/07-echidna-dice-temperatura.md)
 8. [Mezclamos colores](02-arduino/08-mezclamos-colores.md)
+9. [Vúmetro](02-arduino/09-vumetro.md)
 
 ## 3. Licencia
 
