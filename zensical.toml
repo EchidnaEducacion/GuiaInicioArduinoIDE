@@ -18,7 +18,8 @@ nav = [
     {"2.4 Timbre" = "02-arduino/04-timbre.md"},
     {"2.5 Interruptor crepuscular" = "02-arduino/05-interruptor-crepuscular.md"},
     {"2.6 Piano de frutas" = "02-arduino/06-piano-de-frutas.md"},
-    {"2.7 El echidna dice la temperatura" = "02-arduino/07-echidna-dice-temperatura.md"}
+    {"2.7 El echidna dice la temperatura" = "02-arduino/07-echidna-dice-temperatura.md"},
+    {"2.8 Mezclamos colores" = "02-arduino/08-mezclamos-colores.md"}
   ]},
   {"3. Licencia" = "03-licencia.md"}
 ]

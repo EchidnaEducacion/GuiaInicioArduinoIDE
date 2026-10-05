@@ -26,6 +26,7 @@ Arduino IDE, conexión de la placa, estructura de un programa y pines.
 5. [Interruptor crepuscular](docs/02-arduino/05-interruptor-crepuscular.md)
 6. [Piano de frutas](docs/02-arduino/06-piano-de-frutas.md)
 7. [El echidna dice la temperatura](docs/02-arduino/07-echidna-dice-temperatura.md)
+8. [Mezclamos colores](docs/02-arduino/08-mezclamos-colores.md)
 
 ### 3. Licencia
 

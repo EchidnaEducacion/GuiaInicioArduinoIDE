@@ -21,6 +21,7 @@ Antes de empezar, lee la [Introducción](01-introduccion.md): qué es la Echidna
 5. [Interruptor crepuscular](02-arduino/05-interruptor-crepuscular.md)
 6. [Piano de frutas](02-arduino/06-piano-de-frutas.md)
 7. [El echidna dice la temperatura](02-arduino/07-echidna-dice-temperatura.md)
+8. [Mezclamos colores](02-arduino/08-mezclamos-colores.md)
 
 ## 3. Licencia
 
