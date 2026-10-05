@@ -17,6 +17,7 @@ Antes de empezar, lee la [Introducción](01-introduccion.md): qué es la Echidna
 1. [Hola Mundo](02-arduino/01-hola-mundo.md)
 2. [Semáforo](02-arduino/02-semaforo.md)
 3. [Interruptor de luz](02-arduino/03-interruptor-de-luz.md)
+4. [Timbre](02-arduino/04-timbre.md)
 
 ## 3. Licencia
 

@@ -22,6 +22,7 @@ Arduino IDE, conexión de la placa, estructura de un programa y pines.
 1. [Hola Mundo](docs/02-arduino/01-hola-mundo.md)
 2. [Semáforo](docs/02-arduino/02-semaforo.md)
 3. [Interruptor de luz](docs/02-arduino/03-interruptor-de-luz.md)
+4. [Timbre](docs/02-arduino/04-timbre.md)
 
 ### 3. Licencia
 
