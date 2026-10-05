@@ -24,6 +24,7 @@ Arduino IDE, conexión de la placa, estructura de un programa y pines.
 3. [Interruptor de luz](docs/02-arduino/03-interruptor-de-luz.md)
 4. [Timbre](docs/02-arduino/04-timbre.md)
 5. [Interruptor crepuscular](docs/02-arduino/05-interruptor-crepuscular.md)
+6. [Piano de frutas](docs/02-arduino/06-piano-de-frutas.md)
 
 ### 3. Licencia
 

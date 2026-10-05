@@ -19,6 +19,7 @@ Antes de empezar, lee la [Introducción](01-introduccion.md): qué es la Echidna
 3. [Interruptor de luz](02-arduino/03-interruptor-de-luz.md)
 4. [Timbre](02-arduino/04-timbre.md)
 5. [Interruptor crepuscular](02-arduino/05-interruptor-crepuscular.md)
+6. [Piano de frutas](02-arduino/06-piano-de-frutas.md)
 
 ## 3. Licencia
 

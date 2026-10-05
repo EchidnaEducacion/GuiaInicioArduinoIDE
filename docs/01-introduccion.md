@@ -109,9 +109,13 @@ Estos son los pines de los componentes que usaremos en los proyectos:
 | Sensor de temperatura | A6 | Analógico |
 | Micrófono | A7 | Analógico |
 | Acelerómetro | I2C: A4 (SDA) / A5 (SCL) | Digital |
+| Entradas MkMk analógicas | A0, A1, A2, A3, A6, A7 | Analógico |
+| Entradas MkMk digitales | D2, D3 | Digital |
 
 * **Digital**: solo trabaja con dos valores, encendido o apagado (`HIGH` o `LOW`).
 * **Analógico**: lee valores intermedios, entre `0` y `1023`, como la cantidad de luz o la posición del joystick.
 * **Digital/Analógico**: es un pin digital que, además, puede dar valores intermedios, entre `0` y `255`, por **PWM** (modulación por ancho de pulso). Así podemos regular el brillo del LED RGB o hacer sonar el zumbador.
 
 En el código, los pines digitales se escriben solo con su número (`13`) y los analógicos con la letra A (`A3`).
+
+Las **entradas MkMk** (modo Makey Makey) comparten pin con otros componentes de la placa. Para usarlas hay que poner el selector del modo de funcionamiento en **MkMk**.

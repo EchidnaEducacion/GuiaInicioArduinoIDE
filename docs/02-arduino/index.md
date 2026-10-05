@@ -9,6 +9,7 @@ En estos proyectos programamos la placa **EchidnaBlack2** con **Arduino IDE**, e
 3. [Interruptor de luz](03-interruptor-de-luz.md)
 4. [Timbre](04-timbre.md)
 5. [Interruptor crepuscular](05-interruptor-crepuscular.md)
+6. [Piano de frutas](06-piano-de-frutas.md)
 
 ## Estructura de los proyectos
 
