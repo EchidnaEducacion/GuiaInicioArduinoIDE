@@ -86,6 +86,13 @@ alumnado que empiezan con la placa.
 
 ## Reglas del código
 
+- **Estilo didáctico de Arduino**, no purista de C++: se prioriza que el
+  código sea fácil de entender y de leer por encima de la eficiencia o la
+  brevedad. Por ejemplo, `const int` en lugar de `#define`, variables
+  globales con nombre claro, `if ... else` explícitos en lugar del operador
+  `?:`, sin punteros, sin arrays si no hacen falta y sin funciones propias
+  hasta que el proyecto las introduzca. Si una versión más eficiente se
+  entiende peor, se elige la más clara.
 - Bloques con ```` ```arduino ```` (lexer `arduino` de Pygments): colorea
   tipos, funciones y `setup`/`loop` como Arduino IDE (colores del tema
   claro del IDE en `extra.css` y `print.css`). Los programas completos

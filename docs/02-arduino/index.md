@@ -21,3 +21,7 @@ Todos los proyectos siguen la misma estructura:
 1. **Qué vamos a hacer**: descripción del proyecto, qué vamos a aprender y qué vamos a usar.
 2. **Programamos**: el programa completo y cómo funciona, explicado por partes.
 3. **Mejóralo**: propuestas para ampliar el proyecto por tu cuenta.
+
+## Estilo de programación
+
+Los programas siguen la **línea didáctica de Arduino** más que la de un programador experto en C++: priorizamos que el código sea **fácil de entender y de leer**, aunque no sea la forma más corta o más eficiente de escribirlo. Por eso usamos nombres de variables y constantes claros en español, comentarios que explican qué hace cada parte y estructuras sencillas, aunque a veces repitamos instrucciones que se podrían escribir de forma más compacta.
