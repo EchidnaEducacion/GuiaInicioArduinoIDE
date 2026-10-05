@@ -15,7 +15,8 @@ nav = [
     {"2.1 Hola Mundo" = "02-arduino/01-hola-mundo.md"},
     {"2.2 Semáforo" = "02-arduino/02-semaforo.md"},
     {"2.3 Interruptor de luz" = "02-arduino/03-interruptor-de-luz.md"},
-    {"2.4 Timbre" = "02-arduino/04-timbre.md"}
+    {"2.4 Timbre" = "02-arduino/04-timbre.md"},
+    {"2.5 Interruptor crepuscular" = "02-arduino/05-interruptor-crepuscular.md"}
   ]},
   {"3. Licencia" = "03-licencia.md"}
 ]
