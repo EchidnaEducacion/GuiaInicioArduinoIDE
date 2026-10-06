@@ -25,7 +25,7 @@ Antes de empezar, lee la [Introducción](01-introduccion.md): qué es la Echidna
 9. [Mezclamos colores](02-arduino/09-mezclamos-colores.md)
 10. [Vúmetro](02-arduino/10-vumetro.md)
 11. [Nivel de burbuja](02-arduino/11-nivel-de-burbuja.md)
-12. [Regulador de luz](02-arduino/12-regulador-de-luz.md)
+12. [Regulador de luz con joystick](02-arduino/12-regulador-de-luz.md)
 
 ## 3. Licencia
 

@@ -1,4 +1,4 @@
-# 2.12 Regulador de luz
+# 2.12 Regulador de luz con joystick
 
 IMAGEN CABECERA JOYSTICK
 
