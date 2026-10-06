@@ -37,6 +37,24 @@ Todos los proyectos siguen la misma estructura: `1. Qué vamos a hacer` (con
 `1.1 Qué vamos a aprender` y `1.2 Qué vamos a usar`),
 `2. Programamos` y `3. Mejóralo`.
 
+### Programas
+
+La carpeta [`codigo/`](codigo/) contiene todos los programas de la guía en
+archivos `.ino`, listos para abrir en Arduino IDE: una carpeta por proyecto
+con el programa de **Programamos** y las soluciones de las tres mejoras de
+**Mejóralo**.
+
+```
+codigo/
+  01-hola-mundo/
+    01-hola-mundo/01-hola-mundo.ino
+    01-hola-mundo-mejora1/01-hola-mundo-mejora1.ino
+    01-hola-mundo-mejora2/01-hola-mundo-mejora2.ino
+    01-hola-mundo-mejora3/01-hola-mundo-mejora3.ino
+  02-semaforo/
+  ...
+```
+
 ## Requisitos
 
 - Python 3.11 o superior
@@ -101,12 +119,18 @@ cada publicación, por lo que queda disponible en
 ## Comprobar los programas
 
 Cada programa debe compilar para Arduino Nano (ATmega328P, Old Bootloader) con
-[arduino-cli](https://arduino.github.io/arduino-cli/):
+[arduino-cli](https://arduino.github.io/arduino-cli/). Para compilar todos los
+de `codigo/`:
 
 ```bash
 arduino-cli core install arduino:avr
-arduino-cli compile --fqbn arduino:avr:nano:cpu=atmega328old <carpeta-del-programa>
+for d in $(find codigo -name '*.ino' -exec dirname {} \; | sort); do
+  arduino-cli compile --fqbn arduino:avr:nano:cpu=atmega328old "$d" > /dev/null || echo "NO COMPILA: $d"
+done
 ```
+
+Si cambias un programa en la guía, cambia también su `.ino` en `codigo/`, y
+al revés.
 
 ## Licencia
 

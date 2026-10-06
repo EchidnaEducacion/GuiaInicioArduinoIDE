@@ -111,10 +111,18 @@ alumnado que empiezan con la placa.
   debe compilar:
   `arduino-cli compile --fqbn arduino:avr:nano:cpu=atmega328old <carpeta>` (el `.ino` debe
   llamarse como su carpeta).
+- **Carpeta `codigo/`**: cada programa de la guía también está en su `.ino`,
+  listo para abrir en Arduino IDE: `codigo/NN-nombre/NN-nombre/` para el
+  programa de **Programamos** y `codigo/NN-nombre/NN-nombre-mejoraM/` para
+  cada mejora (con la **Ayuda** ya insertada en el programa completo y un
+  primer comentario con el nombre de la mejora). Si cambias el código de un
+  `.md`, cambia también su `.ino`, y al revés; si añades, eliminas o
+  renumeras un proyecto, haz lo mismo con su carpeta.
 
 ## Estructura del repositorio
 
 - `zensical.toml`: configuración del sitio y navegación (`nav`).
+- `codigo/`: los programas de los proyectos y de sus mejoras en `.ino`.
 - `docs/`: contenido Markdown (`index.md` es la página de inicio web y no
   entra en el PDF).
 - `docs/assets/images/`, `docs/assets/fonts/` (Exo y Open Sans para el PDF),
@@ -145,6 +153,19 @@ con uv: `uv venv --python 3.12 .venv` y
 
 Revisa la web (`zensical serve`) y el PDF: imágenes visibles, listas y
 bloques de código bien formados y posición correcta en la navegación.
+
+Si has cambiado algún programa, comprueba que todos los de `codigo/`
+compilan (no se hace en cada push; requiere `arduino-cli` con el core
+`arduino:avr`):
+
+```bash
+for d in $(find codigo -name '*.ino' -exec dirname {} \; | sort); do
+  arduino-cli compile --fqbn arduino:avr:nano:cpu=atmega328old "$d" > /dev/null || echo "NO COMPILA: $d"
+done
+```
+
+Y que coinciden con los `.md`: el programa de **Programamos** y las
+**Ayuda** completas deben ser idénticos a su `.ino`.
 
 ## Licencia
 
