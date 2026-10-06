@@ -19,7 +19,7 @@ Vamos a convertir la placa en un **nivel de burbuja**, como el que usan los alba
 * **Acelerómetro (I2C, pines A4 y A5):** Mide la aceleración en tres ejes (X, Y y Z). Con la placa quieta, lo único que mide es la **gravedad**, así que nos dice hacia dónde está inclinada. Se comunica con el microcontrolador por **I2C**, una conexión de dos cables (SDA en A4 y SCL en A5).
 * **LED verde (pin 11), naranja (pin 12) y rojo (pin 13)** y el **azul del LED RGB (pin 6):** Forman la columna por la que se mueve la luz.
 
-IMAGEN LUPA ACELERÓMETRO
+![Acelerómetro en EchidnaBlack2](../assets/images/Lupa_acelerometro.png "Acelerómetro en EchidnaBlack2"){ .img-lupa }
 
 #### Programación
 
