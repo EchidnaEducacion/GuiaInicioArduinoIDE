@@ -61,6 +61,11 @@ alumnado que empiezan con la placa.
   lista de `docs/02-arduino/index.md`, la de `docs/index.md` y la del
   `README.md`. Los ficheros de proyecto se nombran `NN-nombre.md` dentro de
   la carpeta de su sección.
+- **Enlaces**: los externos a la guía (incluidos el manual de Echidna y la
+  guía de EchidnaML, que son otros sitios) se abren en otra pestaña:
+  `[texto](https://...){ target="_blank" rel="noopener" }`. Los internos
+  (rutas relativas a otros `.md` de la guía, y el PDF de la propia guía) no
+  llevan atributos y se abren en la misma pestaña.
 - **Sin emojis**: WeasyPrint no los coloca bien en el PDF (aparecen como un
   punto suelto en el margen superior). No los reintroduzcas.
 - **Markdown estricto (Python-Markdown)**: las listas necesitan una línea en

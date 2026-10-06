@@ -8,19 +8,19 @@ Su microcontrolador es un **ATmega328P**, el mismo que el de **Arduino Nano**, a
 
 Te proponemos una serie de **proyectos sencillos** para dar tus primeros pasos. Cada proyecto presenta un componente de la placa y la instrucción de Arduino que lo controla.
 
-Si quieres ampliar información, consulta el [Manual de EchidnaML y EchidnaBlack](https://echidnaeducacion.github.io/manual/) y la web del proyecto: [www.echidna.es](https://echidna.es/).
+Si quieres ampliar información, consulta el [Manual de EchidnaML y EchidnaBlack](https://echidnaeducacion.github.io/manual/){ target="_blank" rel="noopener" } y la web del proyecto: [www.echidna.es](https://echidna.es/){ target="_blank" rel="noopener" }.
 
 ## Instalar Arduino IDE
 
 **Arduino IDE** es el programa en el que escribimos el código y desde el que lo cargamos en la placa. Es gratuito y funciona en GNU/Linux, Windows y macOS.
 
-1. Descarga la última versión de **Arduino IDE 2** desde la página oficial: [www.arduino.cc/en/software](https://www.arduino.cc/en/software/). Elige la descarga para tu sistema operativo.
-2. Instálalo como cualquier otro programa. Si necesitas ayuda, consulta la [guía de instalación de Arduino](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started-ide-v2/).
+1. Descarga la última versión de **Arduino IDE 2** desde la página oficial: [www.arduino.cc/en/software](https://www.arduino.cc/en/software/){ target="_blank" rel="noopener" }. Elige la descarga para tu sistema operativo.
+2. Instálalo como cualquier otro programa. Si necesitas ayuda, consulta la [guía de instalación de Arduino](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started-ide-v2/){ target="_blank" rel="noopener" }.
 3. Abre Arduino IDE. La primera vez puede tardar un poco porque descarga algunos componentes.
 
 IMAGEN ENTORNO ARDUINO IDE
 
-La placa se comunica con el ordenador mediante el chip **CH340**. En GNU/Linux no hace falta instalar nada; en Windows y macOS, si el ordenador no reconoce la placa al conectarla, instala su controlador (driver). Encontrarás los enlaces de descarga en las [preguntas frecuentes del manual](https://echidnaeducacion.github.io/manual/09-preguntas-frecuentes/).
+La placa se comunica con el ordenador mediante el chip **CH340**. En GNU/Linux no hace falta instalar nada; en Windows y macOS, si el ordenador no reconoce la placa al conectarla, instala su controlador (driver). Encontrarás los enlaces de descarga en las [preguntas frecuentes del manual](https://echidnaeducacion.github.io/manual/09-preguntas-frecuentes/){ target="_blank" rel="noopener" }.
 
 En GNU/Linux, si Arduino IDE no puede acceder al puerto de la placa, da permiso a tu usuario desde una terminal con `sudo usermod -a -G dialout $USER` y vuelve a iniciar sesión.
 
@@ -85,7 +85,7 @@ Si la carga falla, revisa que:
 * Has elegido la placa **Arduino Nano** con el procesador **ATmega328P (Old Bootloader)**.
 * No hay otro programa usando el puerto, como EchidnaML.
 
-**¡ATENCIÓN!** Al cargar un programa desde Arduino IDE se borra el programa **StandardFirmata** que necesita EchidnaML para comunicarse con la placa. Si después quieres volver a usar la placa con EchidnaML, tendrás que instalarlo de nuevo, como se explica en el [manual](https://echidnaeducacion.github.io/manual/06-firmata/02-instalar-standardfirmata/).
+**¡ATENCIÓN!** Al cargar un programa desde Arduino IDE se borra el programa **StandardFirmata** que necesita EchidnaML para comunicarse con la placa. Si después quieres volver a usar la placa con EchidnaML, tendrás que instalarlo de nuevo, como se explica en el [manual](https://echidnaeducacion.github.io/manual/06-firmata/02-instalar-standardfirmata/){ target="_blank" rel="noopener" }.
 
 ## Pines de la EchidnaBlack2
 

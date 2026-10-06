@@ -6,7 +6,7 @@
 
 **Autoría:** Echidna Educación.
 
-Este recurso se publica bajo la licencia [Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.es). Esto significa que puedes:
+Este recurso se publica bajo la licencia [Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.es){ target="_blank" rel="noopener" }. Esto significa que puedes:
 
 * **Compartir:** copiar y redistribuir el material en cualquier medio o formato.
 * **Adaptar:** remezclar, transformar y crear a partir del material con cualquier finalidad, incluso comercial.
