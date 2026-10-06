@@ -9,8 +9,7 @@ Vamos a hacer que el **LED RGB** de la placa recorra, uno detrás de otro, un mo
 ### 1.1 Qué vamos a aprender
 
 * A utilizar el **LED RGB** y a **mezclar** sus tres colores (rojo, verde y azul) para conseguir otros.
-* A ajustar la **intensidad** de cada color con valores de `0` a `255` mediante **PWM** con `analogWrite`.
-* A repetir instrucciones un número de veces con el bucle **`for`**.
+* A ajustar la **intensidad** de cada color con valores de `0` a `255` mediante **PWM** con `analogWrite`, como el brillo del LED verde en [Brillo LED](05-brillo-led.md).
 * A poner un bucle **dentro de otro** (bucles **anidados**) para recorrer todas las combinaciones.
 
 ### 1.2 Qué vamos a usar
@@ -23,21 +22,19 @@ Vamos a hacer que el **LED RGB** de la placa recorra, uno detrás de otro, un mo
 
 #### Programación
 
-Los pines del LED RGB son de tipo **Digital/Analógico** (ver la tabla de pines de la [Introducción](../01-introduccion.md)), así que con `analogWrite` damos a cada color un valor entre `0` (apagado) y `255` (máxima intensidad). Por ejemplo, el **naranja Echidna** es mucho rojo (`254`), algo de verde (`109`) y casi nada de azul (`4`).
+Los pines del LED RGB son de tipo **Digital/Analógico** (ver la tabla de pines de la [Introducción](../01-introduccion.md)), así que con `analogWrite` damos a cada color un valor entre `0` (apagado) y `255` (máxima intensidad), como hicimos con el LED verde en [Brillo LED](05-brillo-led.md). Por ejemplo, el **naranja Echidna** es mucho rojo (`254`), algo de verde (`109`) y casi nada de azul (`4`).
 
-Para recorrer los valores de cada color usamos el bucle `for`, que repite las instrucciones que tiene entre llaves `{ }`:
+Ya conoces el bucle `for` del proyecto [Brillo LED](05-brillo-led.md). Allí la variable sumaba `1` en cada vuelta; aquí sumará `paso`, así que cada color irá de `paso` en `paso`. Para probar **todas las combinaciones** de colores, ponemos un bucle **dentro de otro** (bucles **anidados**): por cada vuelta del bucle de fuera, el de dentro da todas sus vueltas.
 
 ```arduino
 for (int rojo = 0; rojo <= 255; rojo = rojo + paso) {
-  // instrucciones que se repiten
+  for (int verde = 0; verde <= 255; verde = verde + paso) {
+    // se repite para cada pareja de rojo y verde
+  }
 }
 ```
 
-Entre los paréntesis tiene tres partes, separadas por punto y coma:
-
-* **Inicio** (`int rojo = 0`): crea la variable que cuenta las vueltas y le da su primer valor.
-* **Condición** (`rojo <= 255`): el bucle se repite mientras se cumpla. El operador `<=` significa «menor o igual que».
-* **Incremento** (`rojo = rojo + paso`): cómo cambia la variable al final de cada vuelta; aquí, suma `paso`.
+Si cada bucle da 6 vueltas, lo que hay dentro del segundo se repite 6 × 6 = 36 veces, una por cada pareja de valores. Nuestro programa usa tres bucles anidados, uno por color.
 
 ## 2. Programamos
 
@@ -125,28 +122,30 @@ Prueba a realizar algunas de las siguientes modificaciones al proyecto:
 
     Ahora cada color toma 18 valores: 18 × 18 × 18 = **5832 colores**, y la vuelta completa dura aproximadamente un minuto.
 
-2. **Respiración:** Haz que **un solo color**, por ejemplo el azul, se encienda poco a poco hasta su máximo brillo y después se apague poco a poco, como si el LED respirara.
+2. **De rojo a azul:** Haz que el LED RGB pase poco a poco del **rojo** al **azul**, pasando por los morados, y después vuelva del azul al rojo.
 
-    **Pista:** usa dos bucles `for` seguidos (no anidados): el primero sube el azul de `0` a `255` y el segundo lo baja de `255` a `0`. Para bajar, la condición es `azul >= 0` («mayor o igual que») y el incremento resta: `azul = azul - paso`. Usa un paso pequeño (`5`) y una espera corta (`30`) para que el cambio sea suave.
+    **Pista:** basta con un `for` para cada sentido (no anidados). Mientras el azul sube, el rojo baja: si el azul vale `valor`, el rojo vale `255 - valor`, así que entre los dos siempre suman `255`. Usa un paso pequeño (`5`) y una espera corta (`30`) para que el cambio sea suave.
 
     **Ayuda:** cambia las constantes `paso` y `espera` y la función `loop()`:
 
     ```arduino
-    const int paso = 5;     // el azul sube y baja de 5 en 5
-    const int espera = 30;  // tiempo entre un brillo y el siguiente, en milisegundos
+    const int paso = 5;     // los colores cambian de 5 en 5
+    const int espera = 30;  // tiempo entre un color y el siguiente, en milisegundos
     ```
 
     ```arduino
     void loop() {
-      // el azul se enciende poco a poco
-      for (int azul = 0; azul <= 255; azul = azul + paso) {
-        analogWrite(rgbAzul, azul);
+      // del rojo al azul: el azul sube mientras el rojo baja
+      for (int valor = 0; valor <= 255; valor = valor + paso) {
+        analogWrite(rgbRojo, 255 - valor);
+        analogWrite(rgbAzul, valor);
         delay(espera);
       }
 
-      // el azul se apaga poco a poco
-      for (int azul = 255; azul >= 0; azul = azul - paso) {
-        analogWrite(rgbAzul, azul);
+      // del azul al rojo: el azul baja mientras el rojo sube
+      for (int valor = 255; valor >= 0; valor = valor - paso) {
+        analogWrite(rgbRojo, 255 - valor);
+        analogWrite(rgbAzul, valor);
         delay(espera);
       }
     }

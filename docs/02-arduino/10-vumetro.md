@@ -127,7 +127,7 @@ Prueba a realizar algunas de las siguientes modificaciones al proyecto:
 
 2. **Una lectura más estable:** Para que los LED no parpadeen, en lugar de usar cada lectura del micrófono, calcula la **media** de varias (por ejemplo, de `32`) y usa esa media en los condicionales.
 
-    **Pista:** necesitas una variable que vaya sumando las lecturas (`suma`). Pon la suma a `0`, haz las lecturas con un bucle `for`, como en el proyecto [Mezclamos colores](09-mezclamos-colores.md), y al terminar divide la suma entre el número de lecturas.
+    **Pista:** necesitas una variable que vaya sumando las lecturas (`suma`). Pon la suma a `0`, haz las lecturas con un bucle `for`, como en el proyecto [Brillo LED](05-brillo-led.md), y al terminar divide la suma entre el número de lecturas.
 
     **Ayuda:** declara la constante `muestras` y la variable `suma`:
 
