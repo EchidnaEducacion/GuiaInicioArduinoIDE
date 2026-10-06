@@ -122,7 +122,7 @@ cada publicación, por lo que queda disponible en
 
 ## Comprobar los programas
 
-Cada programa debe compilar para Arduino Nano (ATmega328P, Old Bootloader) con
+Cada programa debe compilar para Arduino Nano (ATmega328P) con
 [arduino-cli](https://arduino.github.io/arduino-cli/). Para compilar todos los
 de `codigo/`:
 
@@ -130,7 +130,7 @@ de `codigo/`:
 arduino-cli core install arduino:avr
 arduino-cli lib install "Adafruit LIS3DH"   # librería del acelerómetro
 for d in $(find codigo -name '*.ino' -exec dirname {} \; | sort); do
-  arduino-cli compile --fqbn arduino:avr:nano:cpu=atmega328old "$d" > /dev/null || echo "NO COMPILA: $d"
+  arduino-cli compile --fqbn arduino:avr:nano:cpu=atmega328 "$d" > /dev/null || echo "NO COMPILA: $d"
 done
 ```
 

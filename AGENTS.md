@@ -112,11 +112,11 @@ alumnado que empiezan con la placa.
   `const int ledRojo = ...;`. Nunca números de pin sueltos en el código.
 - Sin librerías salvo que hagan falta (por ejemplo, para el acelerómetro
   I2C); si se usan, se explica cómo instalarlas.
-- Los pines, la placa, el procesador y el bootloader salen de la tabla de
+- Los pines, la placa y el procesador salen de la tabla de
   la introducción, que da el autor: no los inventes.
 - Cada programa (y cada **Ayuda**, insertada en el programa completo)
   debe compilar:
-  `arduino-cli compile --fqbn arduino:avr:nano:cpu=atmega328old <carpeta>` (el `.ino` debe
+  `arduino-cli compile --fqbn arduino:avr:nano:cpu=atmega328 <carpeta>` (el `.ino` debe
   llamarse como su carpeta).
 - **Carpeta `codigo/`**: cada programa de la guía también está en su `.ino`,
   listo para abrir en Arduino IDE: `codigo/NN-nombre/NN-nombre/` para el
@@ -169,7 +169,7 @@ dependencias):
 
 ```bash
 for d in $(find codigo -name '*.ino' -exec dirname {} \; | sort); do
-  arduino-cli compile --fqbn arduino:avr:nano:cpu=atmega328old "$d" > /dev/null || echo "NO COMPILA: $d"
+  arduino-cli compile --fqbn arduino:avr:nano:cpu=atmega328 "$d" > /dev/null || echo "NO COMPILA: $d"
 done
 ```
 

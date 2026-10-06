@@ -29,15 +29,13 @@ En GNU/Linux, si Arduino IDE no puede acceder al puerto de la placa, da permiso 
 Conecta la EchidnaBlack2 al ordenador con el cable **USB-C** y abre Arduino IDE. Antes de cargar un programa tienes que decirle al IDE **qué placa** vas a programar y **a qué puerto** está conectada. En el menú **Herramientas** elige:
 
 * **Placa:** Arduino AVR Boards → **Arduino Nano**.
-* **Procesador:** **ATmega328P (Old Bootloader)**.
+* **Procesador:** **ATmega328P**.
 * **Puerto:** el puerto USB al que está conectada la placa. Su nombre depende del sistema operativo y el número puede variar según los dispositivos que tengas conectados:
     * GNU/Linux: `/dev/ttyUSB0`
     * Windows: `COM3`
     * macOS: `/dev/cu.usbserial-1410`
 
 ![Placa, procesador y puerto en Arduino IDE](assets/images/Placa_procesador_puerto.png "Placa, procesador y puerto en Arduino IDE")
-
-Si eliges otro procesador (por ejemplo, ATmega328P sin «Old Bootloader»), el programa no se cargará en la placa y el IDE mostrará un error.
 
 ## Estructura de un programa
 
@@ -75,14 +73,12 @@ Con la placa conectada y elegidos la placa, el procesador y el puerto, ya puedes
 3. Pulsa el botón **Verificar** (el de la marca de verificación, arriba a la izquierda). El IDE comprueba que el código está bien escrito y lo **compila**, es decir, lo traduce a instrucciones que entiende el microcontrolador. Si hay algún error, lo verás en la parte inferior de la ventana, indicando la línea en la que está.
 4. Pulsa el botón **Subir** (el de la flecha, junto al anterior). El IDE vuelve a compilar el programa y lo **carga** en la placa. Al terminar, la parte inferior de la ventana indica que la carga se ha completado.
 
-IMAGEN BOTONES VERIFICAR Y SUBIR
-
 En cuanto termina la carga, la placa empieza a ejecutar el programa. El programa queda guardado en la placa: aunque la desconectes, cuando vuelvas a alimentarla seguirá funcionando hasta que cargues otro.
 
 Si la carga falla, revisa que:
 
 * La placa está conectada y has elegido el **puerto** correcto.
-* Has elegido la placa **Arduino Nano** con el procesador **ATmega328P (Old Bootloader)**.
+* Has elegido la placa **Arduino Nano** con el procesador **ATmega328P**.
 * No hay otro programa usando el puerto, como EchidnaML.
 
 **¡ATENCIÓN!** Al cargar un programa desde Arduino IDE se borra el programa **StandardFirmata** que necesita EchidnaML para comunicarse con la placa. Si después quieres volver a usar la placa con EchidnaML, tendrás que instalarlo de nuevo, como se explica en el [manual](https://echidnaeducacion.github.io/manual/06-firmata/02-instalar-standardfirmata/){ target="_blank" rel="noopener" }.
