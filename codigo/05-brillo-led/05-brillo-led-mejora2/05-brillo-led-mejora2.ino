@@ -1,35 +1,26 @@
-// Dos colores: el rojo y después el azul se encienden y se apagan poco a poco
+// Latido: el LED verde se enciende deprisa y se apaga despacio
 
-const int rgbRojo = 9;   // LED RGB: color rojo en el pin 9
-const int rgbVerde = 5;  // LED RGB: color verde en el pin 5
-const int rgbAzul = 6;   // LED RGB: color azul en el pin 6
+const int ledVerde = 11;  // LED verde conectado al pin 11
 
-const int espera = 10;  // tiempo entre un brillo y el siguiente, en milisegundos
+const int esperaSubida = 2;  // subida rápida: 2 milisegundos por paso
+const int esperaBajada = 8;  // bajada lenta: 8 milisegundos por paso
 
 void setup() {
-  pinMode(rgbRojo, OUTPUT);  // los tres colores del LED RGB son salidas
-  pinMode(rgbVerde, OUTPUT);
-  pinMode(rgbAzul, OUTPUT);
+  pinMode(ledVerde, OUTPUT);  // el LED es una salida
 }
 
 void loop() {
-  // el rojo se enciende y se apaga poco a poco
+  // el latido: sube deprisa...
   for (int brillo = 0; brillo <= 255; brillo = brillo + 1) {
-    analogWrite(rgbRojo, brillo);
-    delay(espera);
-  }
-  for (int brillo = 255; brillo >= 0; brillo = brillo - 1) {
-    analogWrite(rgbRojo, brillo);
-    delay(espera);
+    analogWrite(ledVerde, brillo);
+    delay(esperaSubida);
   }
 
-  // el azul se enciende y se apaga poco a poco
-  for (int brillo = 0; brillo <= 255; brillo = brillo + 1) {
-    analogWrite(rgbAzul, brillo);
-    delay(espera);
-  }
+  // ...y baja despacio
   for (int brillo = 255; brillo >= 0; brillo = brillo - 1) {
-    analogWrite(rgbAzul, brillo);
-    delay(espera);
+    analogWrite(ledVerde, brillo);
+    delay(esperaBajada);
   }
+
+  delay(500);  // pausa entre latidos
 }
