@@ -18,7 +18,7 @@ Si quieres ampliar información, consulta el [Manual de EchidnaML y EchidnaBlack
 2. Instálalo como cualquier otro programa. Si necesitas ayuda, consulta la [guía de instalación de Arduino](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started-ide-v2/){ target="_blank" rel="noopener" }.
 3. Abre Arduino IDE. La primera vez puede tardar un poco porque descarga algunos componentes.
 
-IMAGEN ENTORNO ARDUINO IDE
+![Entorno de Arduino IDE](assets/images/Entorno_Arduino_IDE.png "Entorno de Arduino IDE")
 
 La placa se comunica con el ordenador mediante el chip **CH340**. En GNU/Linux no hace falta instalar nada; en Windows y macOS, si el ordenador no reconoce la placa al conectarla, instala su controlador (driver). Encontrarás los enlaces de descarga en las [preguntas frecuentes del manual](https://echidnaeducacion.github.io/manual/09-preguntas-frecuentes/){ target="_blank" rel="noopener" }.
 
@@ -35,7 +35,7 @@ Conecta la EchidnaBlack2 al ordenador con el cable **USB-C** y abre Arduino IDE.
     * Windows: `COM3`
     * macOS: `/dev/cu.usbserial-1410`
 
-IMAGEN PLACA, PROCESADOR Y PUERTO
+![Placa, procesador y puerto en Arduino IDE](assets/images/Placa_procesador_puerto.png "Placa, procesador y puerto en Arduino IDE")
 
 Si eliges otro procesador (por ejemplo, ATmega328P sin «Old Bootloader»), el programa no se cargará en la placa y el IDE mostrará un error.
 
