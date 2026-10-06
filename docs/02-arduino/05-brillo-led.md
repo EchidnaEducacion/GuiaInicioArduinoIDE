@@ -6,6 +6,8 @@ IMAGEN CABECERA BRILLO LED
 
 Vamos a hacer que el **LED verde** de la placa se encienda **poco a poco**, hasta brillar al máximo, y que después se apague también poco a poco, como la luz de un cine al empezar y terminar la película.
 
+![LED verde subiendo y bajando de brillo en EchidnaBlack2](../assets/images/Brillo_LED_funcionamiento.gif "LED verde subiendo y bajando de brillo en EchidnaBlack2")
+
 ### 1.1 Qué vamos a aprender
 
 * A regular el **brillo** de un LED con valores de `0` a `255` mediante **PWM** con `analogWrite`.
