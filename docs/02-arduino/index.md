@@ -15,6 +15,7 @@ En estos proyectos programamos la placa **EchidnaBlack2** con **Arduino IDE**, e
 9. [Mezclamos colores](09-mezclamos-colores.md)
 10. [Vúmetro](10-vumetro.md)
 11. [Nivel de burbuja](11-nivel-de-burbuja.md)
+12. [Regulador de luz](12-regulador-de-luz.md)
 
 ## Estructura de los proyectos
 

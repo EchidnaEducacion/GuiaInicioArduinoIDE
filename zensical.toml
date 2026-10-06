@@ -22,7 +22,8 @@ nav = [
     {"2.8 El echidna dice la temperatura" = "02-arduino/08-echidna-dice-temperatura.md"},
     {"2.9 Mezclamos colores" = "02-arduino/09-mezclamos-colores.md"},
     {"2.10 Vúmetro" = "02-arduino/10-vumetro.md"},
-    {"2.11 Nivel de burbuja" = "02-arduino/11-nivel-de-burbuja.md"}
+    {"2.11 Nivel de burbuja" = "02-arduino/11-nivel-de-burbuja.md"},
+    {"2.12 Regulador de luz" = "02-arduino/12-regulador-de-luz.md"}
   ]},
   {"3. Licencia" = "03-licencia.md"}
 ]

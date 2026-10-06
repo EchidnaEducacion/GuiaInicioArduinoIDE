@@ -30,6 +30,7 @@ Arduino IDE, conexión de la placa, estructura de un programa y pines.
 9. [Mezclamos colores](docs/02-arduino/09-mezclamos-colores.md)
 10. [Vúmetro](docs/02-arduino/10-vumetro.md)
 11. [Nivel de burbuja](docs/02-arduino/11-nivel-de-burbuja.md)
+12. [Regulador de luz](docs/02-arduino/12-regulador-de-luz.md)
 
 ### 3. Licencia
 
