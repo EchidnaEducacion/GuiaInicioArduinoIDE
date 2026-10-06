@@ -91,7 +91,7 @@ Si la carga falla, revisa que:
 
 Cada componente de la placa está conectado a un **pin** del microcontrolador. En los programas usaremos estos números para indicar con qué componente queremos trabajar. No hace falta que los memorices: en la placa, cada componente lleva **serigrafiado** al lado su número de pin (por ejemplo, `Red D13` junto al LED rojo o `Temp A6` junto al sensor de temperatura). Los pines marcados con el símbolo `~` admiten **PWM**.
 
-![Serigrafía de los pines en EchidnaBlack2](assets/images/EchidnaBlack_211_TOP.jpg "Serigrafía de los pines en EchidnaBlack2"){ .img-lupa }
+![Componentes y pines de EchidnaBlack2](assets/images/Componentes.png "Componentes y pines de EchidnaBlack2")
 
 Estos son los pines de los componentes que usaremos en los proyectos:
 
