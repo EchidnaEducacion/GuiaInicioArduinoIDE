@@ -31,6 +31,7 @@ Arduino IDE, conexión de la placa, estructura de un programa y pines.
 10. [Vúmetro](docs/02-arduino/10-vumetro.md)
 11. [Nivel de burbuja](docs/02-arduino/11-nivel-de-burbuja.md)
 12. [Regulador de luz con joystick](docs/02-arduino/12-regulador-de-luz.md)
+13. [Control desde el ordenador](docs/02-arduino/13-control-desde-el-ordenador.md)
 
 ### 3. Licencia
 

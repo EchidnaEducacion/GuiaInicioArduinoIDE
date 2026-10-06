@@ -26,6 +26,7 @@ Antes de empezar, lee la [Introducción](01-introduccion.md): qué es la Echidna
 10. [Vúmetro](02-arduino/10-vumetro.md)
 11. [Nivel de burbuja](02-arduino/11-nivel-de-burbuja.md)
 12. [Regulador de luz con joystick](02-arduino/12-regulador-de-luz.md)
+13. [Control desde el ordenador](02-arduino/13-control-desde-el-ordenador.md)
 
 ## 3. Licencia
 
