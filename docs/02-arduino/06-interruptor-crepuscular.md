@@ -88,33 +88,34 @@ El valor 200 actúa como el umbral que define cuándo debe encenderse o apagarse
 
 Prueba a realizar algunas de las siguientes modificaciones al proyecto:
 
-1. **Calibra tu aula:** Averigua qué valor lee el sensor de luz en tu mesa y ajusta el umbral para que la luz se encienda solo cuando tapes el sensor con la mano.
+1. **Lee el sensor y calibra tu aula:** Averigua qué valores lee el sensor de luz en tu mesa, con la mano encima y sin ella, y ajusta el umbral para que la luz se encienda solo cuando tapes el sensor con la mano.
 
-    **Pista:** para ver el valor del sensor en el ordenador, abre la comunicación en `setup()` con `Serial.begin(9600)` y envía el valor en `loop()` con `Serial.println(valorLuz)`. Después de cargar el programa, abre el **Monitor serie** (menú **Herramientas > Monitor Serie**) con la velocidad en **9600 baudios**. Prueba con la mano encima y sin ella, y elige un umbral entre los dos valores.
+    **Pista:** para ver el valor del sensor en el ordenador, usa el **Monitor serie**. En `setup()`, abre la comunicación con `Serial.begin(9600)`; en `loop()`, escribe un texto con `Serial.print("texto")` y el valor con `Serial.println(valorLuz)`, que además salta a la línea siguiente. Después de cargar el programa, abre el Monitor serie (menú **Herramientas > Monitor Serie**) con la velocidad en **9600 baudios**. Elige un umbral entre el valor con la mano encima y el valor sin ella.
 
-    **Ayuda:** cambia las funciones `setup()` y `loop()`:
+    **Ayuda:** este programa solo lee el sensor y muestra su valor en el Monitor serie una vez por segundo:
 
-    ```arduino
+    ```arduino linenums="1"
+    // Lee el sensor de luz: muestra su valor en el Monitor serie
+
+    const int sensorLuz = A3;  // sensor de luz (LDR) conectado al pin A3
+
+    int valorLuz = 0;  // guarda la luz que mide el sensor (de 0 a 1023)
+
     void setup() {
-      pinMode(ledVerde, OUTPUT);
-      Serial.begin(9600);  // abre la comunicación con el ordenador
+      Serial.begin(9600);  // abre la comunicación a 9600 baudios
     }
 
     void loop() {
-      valorLuz = analogRead(sensorLuz);
-      Serial.println(valorLuz);  // muestra el valor en el Monitor serie
+      valorLuz = analogRead(sensorLuz);  // lee el sensor
 
-      if (valorLuz < umbral) {
-        digitalWrite(ledVerde, HIGH);
-      } else {
-        digitalWrite(ledVerde, LOW);
-      }
+      Serial.print("Valor del sensor de luz: ");  // texto
+      Serial.println(valorLuz);                   // valor y salto de línea
 
-      delay(200);  // espera un poco para poder leer los valores
+      delay(1000);  // espera 1 segundo para poder leer los valores
     }
     ```
 
-    Cuando sepas el valor, cambia el número de la constante `umbral`.
+    Cuando sepas los valores, vuelve a cargar el programa del interruptor y cambia el número de la constante `umbral`. Este programa sirve para leer cualquier sensor analógico de la placa: solo hay que cambiar el pin.
 
 2. **Luz blanca:** Sustituye el LED verde por el **LED RGB** para que ilumine más: cuando haya oscuridad, se encenderá en color **blanco**, y cuando haya mucha luz, se apagará.
 

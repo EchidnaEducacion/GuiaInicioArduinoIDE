@@ -29,7 +29,7 @@ El sensor está en un pin **analógico** (ver la tabla de pines de la [Introducc
 temperatura = (lectura × 0.4658) − 50
 ```
 
-Para que la placa nos diga la temperatura, usamos el **Monitor serie**: una ventana de Arduino IDE donde vemos los mensajes que la placa envía al ordenador por el cable USB. Para enviar los mensajes usamos la función `Serial.print(dato)`:
+Para que la placa nos diga la temperatura, usamos el **Monitor serie**: una ventana de Arduino IDE donde vemos los mensajes que la placa envía al ordenador por el cable USB. Si hiciste la primera mejora del [Interruptor crepuscular](06-interruptor-crepuscular.md), ya lo has usado; aquí lo vemos con detalle. Para enviar los mensajes usamos la función `Serial.print(dato)`:
 
 * **dato**: lo que queremos mostrar. Puede ser un **texto**, entre comillas (`"Hola"`), o el valor de una **variable** (`temperatura`).
 * `Serial.println(dato)` hace lo mismo, pero después **salta a la línea siguiente**, así cada mensaje empieza en una línea nueva.
