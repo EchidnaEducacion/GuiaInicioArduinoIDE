@@ -24,10 +24,12 @@ alumnado que empiezan con la placa.
   en **negrita**.
 - **Estructura fija de cada proyecto**: `# N.M Título`, imagen de cabecera
   `{ .img-cabecera }`, `## 1. Qué vamos a hacer`,
-  `### 1.1 Qué vamos a aprender`, `### 1.2 Qué vamos a usar`,
-  `## 2. Programamos` y `## 3. Mejóralo`. Mantén este patrón al añadir un
-  proyecto.
-- **Qué vamos a usar (1.2)**: lista de componentes con su pin y, al final,
+  `### 1.1 Qué vamos a aprender`, `### 1.2 Qué vamos a usar` (con
+  `#### Componentes` y `#### Programación`), `## 2. Programamos` y
+  `## 3. Mejóralo`. Mantén este patrón al añadir un proyecto.
+- **Qué vamos a usar (1.2)**: dos subapartados. `#### Componentes`: lista
+  de componentes con su pin, imagen de la lupa y avisos de montaje (por
+  ejemplo, el selector MkMk). `#### Programación`: el tipo de pin y
   **una única función o instrucción de Arduino**, la que introduce el
   proyecto (con su nombre entre comillas invertidas y sus parámetros
   explicados). Las que ya se presentaron en proyectos anteriores no se

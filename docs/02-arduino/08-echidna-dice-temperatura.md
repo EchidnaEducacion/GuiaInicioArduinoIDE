@@ -15,9 +15,13 @@ Vamos a convertir a nuestra placa en un **hombre del tiempo**: cada segundo medi
 
 ### 1.2 Qué vamos a usar
 
+#### Componentes
+
 * **Sensor de temperatura (pin A6):** Mide la temperatura del ambiente. Entrega un voltaje que depende de la temperatura.
 
 ![Sensor de temperatura en EchidnaBlack2](../assets/images/Lupa_Temperatura.png "Sensor de temperatura en EchidnaBlack2"){ .img-lupa }
+
+#### Programación
 
 El sensor está en un pin **analógico** (ver la tabla de pines de la [Introducción](../01-introduccion.md)), así que lo leemos con `analogRead`, que nos da un número entre `0` y `1023`. Para pasar ese número a grados Celsius usamos esta fórmula, ajustada a la EchidnaBlack2:
 

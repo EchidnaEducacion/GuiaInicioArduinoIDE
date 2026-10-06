@@ -15,9 +15,13 @@ Vamos a hacer que el **LED RGB** de la placa recorra, uno detrás de otro, un mo
 
 ### 1.2 Qué vamos a usar
 
+#### Componentes
+
 * **LED RGB (pines 9, 5 y 6):** Componente que tiene dentro tres LED: uno **rojo** (R, *Red*, pin 9), uno **verde** (G, *Green*, pin 5) y uno **azul** (B, *Blue*, pin 6). Al mezclar la luz de los tres podemos conseguir más de 16 millones de colores.
 
 ![LED RGB en EchidnaBlack2](../assets/images/Lupa_LEDRGB.png "LED RGB en EchidnaBlack2"){ .img-lupa }
+
+#### Programación
 
 Los pines del LED RGB son de tipo **Digital/Analógico** (ver la tabla de pines de la [Introducción](../01-introduccion.md)), así que con `analogWrite` damos a cada color un valor entre `0` (apagado) y `255` (máxima intensidad). Por ejemplo, el **naranja Echidna** es mucho rojo (`254`), algo de verde (`109`) y casi nada de azul (`4`).
 

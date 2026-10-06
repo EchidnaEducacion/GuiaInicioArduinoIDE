@@ -16,9 +16,13 @@ En este primer proyecto haremos que el **LED rojo** de la placa EchidnaBlack2 se
 
 ### 1.2 Qué vamos a usar
 
+#### Componentes
+
 * **LED rojo (pin 13):** Se enciende y se apaga para crear el parpadeo.
 
 ![LED en EchidnaBlack2](../assets/images/Lupa_Ledes.png "LED en EchidnaBlack2"){ .img-lupa }
+
+#### Programación
 
 Para encender y apagar los LED usamos la función `digitalWrite(pin, valor)`:
 

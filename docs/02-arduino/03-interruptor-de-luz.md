@@ -22,11 +22,15 @@ Vamos a programar un sistema de encendido y apagado manual con dos botones:
 
 ### 1.2 Qué vamos a usar
 
+#### Componentes
+
 * **Pulsador SR (Switch Right / Derecho, pin 2):** Para encender el LED.
 * **Pulsador SL (Switch Left / Izquierdo, pin 3):** Para apagar el LED.
 * **LED rojo (pin 13):** Componente que cambia de estado según el botón pulsado.
 
 ![Pulsadores en EchidnaBlack2](../assets/images/Lupa_Pulsadores.png "Pulsadores en EchidnaBlack2"){ .img-lupa }
+
+#### Programación
 
 Los pines de los pulsadores son **entradas**, así que en `setup()` los configuramos con `pinMode(pin, INPUT)`. Para leer el estado de un pulsador usamos la función `digitalRead(pin)`:
 

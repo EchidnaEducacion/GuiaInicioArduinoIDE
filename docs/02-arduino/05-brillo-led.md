@@ -14,9 +14,13 @@ Vamos a hacer que el **LED RGB** de la placa se encienda **poco a poco** en colo
 
 ### 1.2 Qué vamos a usar
 
+#### Componentes
+
 * **LED RGB (pines 9, 5 y 6):** Componente que tiene dentro tres LED: uno **rojo** (R, *Red*, pin 9), uno **verde** (G, *Green*, pin 5) y uno **azul** (B, *Blue*, pin 6). Si los encendemos los tres con el mismo brillo, sus luces se mezclan y vemos luz **blanca**.
 
 ![LED RGB en EchidnaBlack2](../assets/images/Lupa_LEDRGB.png "LED RGB en EchidnaBlack2"){ .img-lupa }
+
+#### Programación
 
 En el proyecto [Timbre](04-timbre.md) usamos `analogWrite` para hacer sonar el zumbador. Los pines del LED RGB también son de tipo **Digital/Analógico** (ver la tabla de pines de la [Introducción](../01-introduccion.md)), así que con `analogWrite` podemos darle a cada color un **brillo** entre `0` (apagado) y `255` (brillo máximo); con `128`, por ejemplo, luce a media potencia. La señal **PWM** enciende y apaga el LED tan deprisa que no vemos el parpadeo: cuanto más tiempo está encendido en cada parpadeo, más brillante lo vemos.
 

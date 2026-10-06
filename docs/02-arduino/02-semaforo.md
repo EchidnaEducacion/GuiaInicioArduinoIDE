@@ -16,11 +16,15 @@ Vamos a realizar un semáforo en el que el LED verde se enciende durante 5 segun
 
 ### 1.2 Qué vamos a usar
 
+#### Componentes
+
 * **LED verde (pin 11):** Fase de paso.
 * **LED naranja (pin 12):** Fase de precaución.
 * **LED rojo (pin 13):** Fase de detención.
 
 ![LED en EchidnaBlack2](../assets/images/Lupa_Ledes.png "LED en EchidnaBlack2"){ .img-lupa }
+
+#### Programación
 
 Para encender y apagar los LED ya conoces `digitalWrite` y para esperar, `delay`. Antes de usar un pin hay que decirle a la placa cómo lo vamos a usar con la función `pinMode(pin, modo)`:
 

@@ -16,10 +16,14 @@ Vamos a programar un sistema automático similar al de las farolas de la calle: 
 
 ### 1.2 Qué vamos a usar
 
+#### Componentes
+
 * **Sensor de luz (LDR, pin A3):** Mide la cantidad de luz que recibe. Cuanto más oscuro esté el entorno, menor será el valor que leemos.
 * **LED verde (pin 11):** Funcionará como nuestra luz automática.
 
 ![Sensor de luz (LDR) en EchidnaBlack2](../assets/images/Lupa_LDR.png "Sensor de luz (LDR) en EchidnaBlack2"){ .img-lupa }
+
+#### Programación
 
 El sensor de luz está en un pin de tipo **Analógico** (ver la tabla de pines de la [Introducción](../01-introduccion.md)). Para leerlo usamos la función `analogRead(pin)`:
 

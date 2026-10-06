@@ -15,10 +15,14 @@ Vamos a programar un timbre eléctrico: el **zumbador** emitirá un sonido únic
 
 ### 1.2 Qué vamos a usar
 
+#### Componentes
+
 * **Pulsador SL (Switch Left / Izquierdo, pin 3):** Componente de entrada para activar el sonido.
 * **Zumbador pasivo (Buzzer, pin 10):** Componente de salida que genera pitidos.
 
 ![Zumbador en EchidnaBlack2](../assets/images/Lupa_Zumbador.png "Zumbador en EchidnaBlack2"){ .img-lupa }
+
+#### Programación
 
 Para hacer sonar el zumbador usamos la función `analogWrite(pin, valor)`:
 

@@ -133,6 +133,10 @@ h3 {
 
 h4 { font-size: 11.5pt; margin: 1rem 0 .35rem; }
 
+/* build_pdf.py baja un nivel los títulos de las páginas de sección: los
+   #### de los proyectos («Componentes», «Programación») llegan como h5. */
+h5 { font-size: 11pt; margin: .8rem 0 .3rem; }
+
 p, ul, ol { margin: 0 0 .6rem; orphans: 3; widows: 3; }
 
 /* Las imágenes grandes dejaban páginas medio vacías; se limitan en el PDF

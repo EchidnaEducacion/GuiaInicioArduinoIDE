@@ -16,10 +16,14 @@ Vamos a construir un **vúmetro** o **semáforo de ruido**, que muestra con los 
 
 ### 1.2 Qué vamos a usar
 
+#### Componentes
+
 * **Micrófono (pin A7):** Convierte las vibraciones del sonido en una señal eléctrica. Da valores bajos con silencio y valores más altos cuanto más intenso es el sonido.
 * **LED verde (pin 11), naranja (pin 12) y rojo (pin 13):** Nos indicarán el nivel de ruido.
 
 ![Micrófono en EchidnaBlack2](../assets/images/Lupa_Microfono.png "Micrófono en EchidnaBlack2"){ .img-lupa }
+
+#### Programación
 
 El micrófono está en un pin **analógico** (ver la tabla de pines de la [Introducción](../01-introduccion.md)), así que lo leemos con `analogRead`. El problema es que su señal es muy **pequeña**: con la configuración normal, `analogRead` reparte los valores de `0` a `1023` entre 0 y 5 V, y el micrófono apenas llega a dar unos pocos valores. Para solucionarlo usamos la función `analogReference(tipo)`:
 
