@@ -1,4 +1,4 @@
-# 2.11 Nivel de burbuja
+# 2.12 Nivel de burbuja
 
 IMAGEN CABECERA ACELERÓMETRO
 
@@ -142,7 +142,7 @@ Prueba a realizar algunas de las siguientes modificaciones al proyecto:
 
 1. **Lee el acelerómetro:** Mira cómo cambian los valores de los ejes X e Y cuando inclinas la placa hacia delante, hacia atrás y hacia los lados.
 
-    **Pista:** envía los dos valores al ordenador como en la primera mejora del [Interruptor crepuscular](06-interruptor-crepuscular.md) y ábrelos con el **Serial Plotter** (menú **Herramientas > Serial Plotter**), que los dibuja como una gráfica. Si escribes antes de cada valor un nombre seguido de dos puntos (`X:` e `Y:`), el Serial Plotter dibuja cada eje con su color y su nombre.
+    **Pista:** envía los dos valores al ordenador y ábrelos con el **Serial Plotter**, como en la primera mejora del [Regulador de luz con joystick](11-regulador-de-luz.md): escribe `X:` antes del valor del eje X e `Y:` antes del valor del eje Y. Los ejes del acelerómetro se leen con `acelerometro.x_g` y `acelerometro.y_g`.
 
     **Ayuda:** este programa solo lee el acelerómetro y envía los ejes X e Y al ordenador:
 
@@ -172,7 +172,7 @@ Prueba a realizar algunas de las siguientes modificaciones al proyecto:
 
 2. **Alarma de caída:** Haz que el **zumbador** pite cuando la placa esté muy inclinada, hacia cualquiera de los dos lados.
 
-    **Pista:** el zumbador está en el pin `10` y suena con `analogWrite(zumbador, 125)`. Para comprobar si se cumple **una u otra** condición se usa `||` («o»): `if (inclinacion > inclinacionMucha || inclinacion < -inclinacionMucha)`.
+    **Pista:** el zumbador está en el pin `10` y suena con `analogWrite(zumbador, 125)`. Para comprobar si se cumple **una u otra** condición usa `||` («o»), como en el theremín del [Regulador de luz con joystick](11-regulador-de-luz.md): `if (inclinacion > inclinacionMucha || inclinacion < -inclinacionMucha)`.
 
     **Ayuda:** declara la constante del zumbador (pin `10`), configúralo como salida en `setup()` y añade al final de la función `loop()`:
 

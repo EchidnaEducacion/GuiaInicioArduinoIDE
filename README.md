@@ -29,8 +29,8 @@ Arduino IDE, conexión de la placa, estructura de un programa y pines.
 8. [El echidna dice la temperatura](docs/02-arduino/08-echidna-dice-temperatura.md)
 9. [Mezclamos colores](docs/02-arduino/09-mezclamos-colores.md)
 10. [Vúmetro](docs/02-arduino/10-vumetro.md)
-11. [Nivel de burbuja](docs/02-arduino/11-nivel-de-burbuja.md)
-12. [Regulador de luz con joystick](docs/02-arduino/12-regulador-de-luz.md)
+11. [Regulador de luz con joystick](docs/02-arduino/11-regulador-de-luz.md)
+12. [Nivel de burbuja](docs/02-arduino/12-nivel-de-burbuja.md)
 13. [Control desde el ordenador](docs/02-arduino/13-control-desde-el-ordenador.md)
 
 ### 3. Licencia

@@ -1,4 +1,4 @@
-# 2.12 Regulador de luz con joystick
+# 2.11 Regulador de luz con joystick
 
 IMAGEN CABECERA JOYSTICK
 
@@ -100,7 +100,7 @@ Prueba a realizar algunas de las siguientes modificaciones al proyecto:
 
 1. **Lee el joystick:** Mira qué valores dan los ejes X e Y del joystick de tu placa en reposo y al moverlo, y ajusta las constantes `centroMin` y `centroMax` si el LED se enciende un poco con el joystick suelto.
 
-    **Pista:** envía los dos valores al ordenador y ábrelos con el **Serial Plotter**, como en la primera mejora del [Nivel de burbuja](11-nivel-de-burbuja.md): escribe `X:` antes del valor del eje X e `Y:` antes del valor del eje Y.
+    **Pista:** envía los dos valores al ordenador y ábrelos con el **Serial Plotter** (menú **Herramientas > Serial Plotter**), que los dibuja como una gráfica, como en la primera mejora del [Vúmetro](10-vumetro.md). Si escribes antes de cada valor un nombre seguido de dos puntos (`X:` e `Y:`), el Serial Plotter dibuja cada eje con su color y su nombre.
 
     **Ayuda:** este programa solo lee el joystick y envía los dos ejes al ordenador:
 
@@ -169,7 +169,7 @@ Prueba a realizar algunas de las siguientes modificaciones al proyecto:
 
 3. **Theremín:** Convierte la placa en un **theremín**, un instrumento que se toca sin tocarlo: al mover el joystick, el **zumbador** cambia de nota, más grave hacia la izquierda y más aguda hacia la derecha. Con el joystick en el centro, silencio.
 
-    **Pista:** convierte la posición del joystick en una frecuencia con `map`, por ejemplo, de `200` Hz a la izquierda a `1000` Hz a la derecha, y hazla sonar con `tone(zumbador, frecuencia)`. Para que no suene todo el rato, comprueba si el joystick está **fuera** del centro con `||` («o»), como en la alarma del [Nivel de burbuja](11-nivel-de-burbuja.md), y, si está en el centro, calla el zumbador con `noTone(zumbador)`.
+    **Pista:** convierte la posición del joystick en una frecuencia con `map`, por ejemplo, de `200` Hz a la izquierda a `1000` Hz a la derecha, y hazla sonar con `tone(zumbador, frecuencia)`. Para que no suene todo el rato, comprueba si el joystick está **fuera** del centro: para saber si se cumple **una u otra** condición se usa `||` («o»), `if (valorX < centroMin || valorX > centroMax)`. Si está en el centro, calla el zumbador con `noTone(zumbador)`.
 
     **Ayuda:** esta mejora es más compleja, así que te dejamos una posible solución:
 
