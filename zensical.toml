@@ -16,11 +16,12 @@ nav = [
     {"2.2 Semáforo" = "02-arduino/02-semaforo.md"},
     {"2.3 Interruptor de luz" = "02-arduino/03-interruptor-de-luz.md"},
     {"2.4 Timbre" = "02-arduino/04-timbre.md"},
-    {"2.5 Interruptor crepuscular" = "02-arduino/05-interruptor-crepuscular.md"},
-    {"2.6 Piano de frutas" = "02-arduino/06-piano-de-frutas.md"},
-    {"2.7 El echidna dice la temperatura" = "02-arduino/07-echidna-dice-temperatura.md"},
-    {"2.8 Mezclamos colores" = "02-arduino/08-mezclamos-colores.md"},
-    {"2.9 Vúmetro" = "02-arduino/09-vumetro.md"}
+    {"2.5 Brillo LED" = "02-arduino/05-brillo-led.md"},
+    {"2.6 Interruptor crepuscular" = "02-arduino/06-interruptor-crepuscular.md"},
+    {"2.7 Piano de frutas" = "02-arduino/07-piano-de-frutas.md"},
+    {"2.8 El echidna dice la temperatura" = "02-arduino/08-echidna-dice-temperatura.md"},
+    {"2.9 Mezclamos colores" = "02-arduino/09-mezclamos-colores.md"},
+    {"2.10 Vúmetro" = "02-arduino/10-vumetro.md"}
   ]},
   {"3. Licencia" = "03-licencia.md"}
 ]

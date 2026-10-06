@@ -8,11 +8,12 @@ En estos proyectos programamos la placa **EchidnaBlack2** con **Arduino IDE**, e
 2. [Semáforo](02-semaforo.md)
 3. [Interruptor de luz](03-interruptor-de-luz.md)
 4. [Timbre](04-timbre.md)
-5. [Interruptor crepuscular](05-interruptor-crepuscular.md)
-6. [Piano de frutas](06-piano-de-frutas.md)
-7. [El echidna dice la temperatura](07-echidna-dice-temperatura.md)
-8. [Mezclamos colores](08-mezclamos-colores.md)
-9. [Vúmetro](09-vumetro.md)
+5. [Brillo LED](05-brillo-led.md)
+6. [Interruptor crepuscular](06-interruptor-crepuscular.md)
+7. [Piano de frutas](07-piano-de-frutas.md)
+8. [El echidna dice la temperatura](08-echidna-dice-temperatura.md)
+9. [Mezclamos colores](09-mezclamos-colores.md)
+10. [Vúmetro](10-vumetro.md)
 
 ## Estructura de los proyectos
 

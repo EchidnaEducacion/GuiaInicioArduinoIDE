@@ -23,11 +23,12 @@ Arduino IDE, conexión de la placa, estructura de un programa y pines.
 2. [Semáforo](docs/02-arduino/02-semaforo.md)
 3. [Interruptor de luz](docs/02-arduino/03-interruptor-de-luz.md)
 4. [Timbre](docs/02-arduino/04-timbre.md)
-5. [Interruptor crepuscular](docs/02-arduino/05-interruptor-crepuscular.md)
-6. [Piano de frutas](docs/02-arduino/06-piano-de-frutas.md)
-7. [El echidna dice la temperatura](docs/02-arduino/07-echidna-dice-temperatura.md)
-8. [Mezclamos colores](docs/02-arduino/08-mezclamos-colores.md)
-9. [Vúmetro](docs/02-arduino/09-vumetro.md)
+5. [Brillo LED](docs/02-arduino/05-brillo-led.md)
+6. [Interruptor crepuscular](docs/02-arduino/06-interruptor-crepuscular.md)
+7. [Piano de frutas](docs/02-arduino/07-piano-de-frutas.md)
+8. [El echidna dice la temperatura](docs/02-arduino/08-echidna-dice-temperatura.md)
+9. [Mezclamos colores](docs/02-arduino/09-mezclamos-colores.md)
+10. [Vúmetro](docs/02-arduino/10-vumetro.md)
 
 ### 3. Licencia
 
