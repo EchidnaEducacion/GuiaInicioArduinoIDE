@@ -158,7 +158,9 @@ bloques de código bien formados y posición correcta en la navegación.
 
 Si has cambiado algún programa, comprueba que todos los de `codigo/`
 compilan (no se hace en cada push; requiere `arduino-cli` con el core
-`arduino:avr`):
+`arduino:avr` y la librería del acelerómetro,
+`arduino-cli lib install "Adafruit LIS3DH"`, que instala también sus
+dependencias):
 
 ```bash
 for d in $(find codigo -name '*.ino' -exec dirname {} \; | sort); do

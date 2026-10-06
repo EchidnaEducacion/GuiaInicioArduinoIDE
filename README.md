@@ -29,6 +29,7 @@ Arduino IDE, conexión de la placa, estructura de un programa y pines.
 8. [El echidna dice la temperatura](docs/02-arduino/08-echidna-dice-temperatura.md)
 9. [Mezclamos colores](docs/02-arduino/09-mezclamos-colores.md)
 10. [Vúmetro](docs/02-arduino/10-vumetro.md)
+11. [Nivel de burbuja](docs/02-arduino/11-nivel-de-burbuja.md)
 
 ### 3. Licencia
 
@@ -125,6 +126,7 @@ de `codigo/`:
 
 ```bash
 arduino-cli core install arduino:avr
+arduino-cli lib install "Adafruit LIS3DH"   # librería del acelerómetro
 for d in $(find codigo -name '*.ino' -exec dirname {} \; | sort); do
   arduino-cli compile --fqbn arduino:avr:nano:cpu=atmega328old "$d" > /dev/null || echo "NO COMPILA: $d"
 done
