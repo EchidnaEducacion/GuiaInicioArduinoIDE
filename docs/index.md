@@ -1,6 +1,6 @@
 # Proyectos de inicio con Arduino
 
-![Erizo de Echidna con antifaz de Arduino](assets/images/Portada_erizo_Arduino.png "Erizo de Echidna con antifaz de Arduino"){ .img-portada }
+![Erizo de Echidna con antifaz de Arduino](assets/images/LogoEchidnaArduinoIDE.png "Erizo de Echidna con antifaz de Arduino"){ .img-portada }
 
 Proyectos sencillos para iniciarse en la programación de la placa **EchidnaBlack2** con **Arduino IDE**, pensada para docentes y alumnado que dan sus primeros pasos con la placa.
 

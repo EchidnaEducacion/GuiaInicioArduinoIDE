@@ -125,7 +125,7 @@ def render_page(depth, md_path, url_to_id):
 
 def render_cover(site_title, site_author):
     logo = (SITE_DIR / "assets/images/Logo_Echidna_I.png").resolve().as_uri()
-    portada = (SITE_DIR / "assets/images/Portada_erizo_Arduino.png").resolve().as_uri()
+    portada = (SITE_DIR / "assets/images/LogoEchidnaArduinoIDE.png").resolve().as_uri()
     # A diferencia del manual, este recurso no tiene una ilustración de portada
     # de página completa: la portada se maqueta con HTML + print.css (logo,
     # título, imagen y autoría). La imagen es provisional, a la espera de la
