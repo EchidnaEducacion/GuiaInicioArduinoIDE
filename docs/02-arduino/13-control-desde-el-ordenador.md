@@ -1,6 +1,6 @@
 # 2.13 Control desde el ordenador
 
-IMAGEN CABECERA PUERTO SERIE
+![Imagen cabecera Control desde el ordenador](../assets/images/Control_ordenador.png "Imagen cabecera Control desde el ordenador"){ .img-cabecera }
 
 ## 1. Qué vamos a hacer
 
