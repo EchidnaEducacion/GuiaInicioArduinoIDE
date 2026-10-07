@@ -1,6 +1,6 @@
 # 2.11 Regulador de luz con joystick
 
-IMAGEN CABECERA JOYSTICK
+![Imagen cabecera Regulador de luz con joystick](../assets/images/Joystick.png "Imagen cabecera Regulador de luz con joystick"){ .img-cabecera }
 
 ## 1. Qué vamos a hacer
 
