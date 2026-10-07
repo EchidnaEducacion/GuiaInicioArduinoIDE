@@ -1,6 +1,6 @@
 # 2.12 Nivel de burbuja
 
-IMAGEN CABECERA ACELERÓMETRO
+![Imagen cabecera Nivel de burbuja](../assets/images/Nivel_burbuja.png "Imagen cabecera Nivel de burbuja"){ .img-cabecera }
 
 ## 1. Qué vamos a hacer
 
