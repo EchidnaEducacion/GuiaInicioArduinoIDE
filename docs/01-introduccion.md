@@ -20,7 +20,7 @@ Si quieres ampliar información, consulta el [Manual de EchidnaML y EchidnaBlack
 
 ![Entorno de Arduino IDE](assets/images/Entorno_Arduino_IDE.png "Entorno de Arduino IDE")
 
-La placa se comunica con el ordenador mediante el chip **CH340**. En GNU/Linux no hace falta instalar nada; en Windows y macOS, si el ordenador no reconoce la placa al conectarla, instala su controlador (driver). Encontrarás los enlaces de descarga en las [preguntas frecuentes del manual](https://echidnaeducacion.github.io/manual/09-preguntas-frecuentes/){ target="_blank" rel="noopener" }.
+La placa se comunica con el ordenador mediante el chip **CH340**. En GNU/Linux no hace falta instalar nada; en Windows y macOS tienes que instalar su controlador (driver), el **Driver CH341**. Encontrarás los enlaces de descarga en las [preguntas frecuentes del manual](https://echidnaeducacion.github.io/manual/09-preguntas-frecuentes/){ target="_blank" rel="noopener" }.
 
 En GNU/Linux, si Arduino IDE no puede acceder al puerto de la placa, da permiso a tu usuario desde una terminal con `sudo usermod -a -G dialout $USER` y vuelve a iniciar sesión.
 
