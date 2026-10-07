@@ -1,6 +1,6 @@
 # 2.5 Brillo LED
 
-IMAGEN CABECERA BRILLO LED
+![Imagen cabecera Brillo LED](../assets/images/Brillo_LED.png "Imagen cabecera Brillo LED"){ .img-cabecera }
 
 ## 1. Qué vamos a hacer
 
