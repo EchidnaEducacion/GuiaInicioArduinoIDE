@@ -108,90 +108,10 @@ Prueba a realizar algunas de las siguientes modificaciones al proyecto:
 
     **Pista:** la constante `espera` marca cuánto dura cada uno de los 256 pasos. Con `30` milisegundos, cada subida dura unos 7,7 segundos; con `2`, apenas medio segundo.
 
-    **Ayuda:** cambia solo la constante:
-
-    ```arduino
-    const int espera = 30;  // tiempo entre un brillo y el siguiente, en milisegundos
-    ```
-
 2. **Latido:** Haz que el LED lata como un corazón: que se encienda **deprisa** y se apague **despacio**, con una pausa corta entre un latido y el siguiente.
 
     **Pista:** usa dos constantes en lugar de `espera`, una para la subida (por ejemplo, `2`) y otra para la bajada (por ejemplo, `8`), y pon cada una en el `delay` de su bucle. Acorta también la pausa del final, por ejemplo a medio segundo.
 
-    **Ayuda:** cambia la constante `espera` por estas dos:
-
-    ```arduino
-    const int esperaSubida = 2;  // subida rápida: 2 milisegundos por paso
-    const int esperaBajada = 8;  // bajada lenta: 8 milisegundos por paso
-    ```
-
-    y cambia la función `loop()`:
-
-    ```arduino
-    void loop() {
-      // el latido: sube deprisa...
-      for (int brillo = 0; brillo <= 255; brillo = brillo + 1) {
-        analogWrite(ledVerde, brillo);
-        delay(esperaSubida);
-      }
-
-      // ...y baja despacio
-      for (int brillo = 255; brillo >= 0; brillo = brillo - 1) {
-        analogWrite(ledVerde, brillo);
-        delay(esperaBajada);
-      }
-
-      delay(500);  // pausa entre latidos
-    }
-    ```
-
 3. **Regulador de brillo:** Usa los pulsadores como el regulador de luz de una lámpara: mientras mantienes pulsado **SR**, el LED verde brilla cada vez más, y mientras mantienes pulsado **SL**, brilla cada vez menos.
 
     **Pista:** ahora no hace falta un `for`: declara una variable global `brillo` y, en cada vuelta de `loop()`, súmale `1` si SR está pulsado y réstale `1` si lo está SL. Para que no se salga de los valores de `analogWrite`, súmale solo si es menor que `255` y réstale solo si es mayor que `0`, con un `if` dentro de otro, como en el [Interruptor de luz](03-interruptor-de-luz.md).
-
-    **Ayuda:** esta mejora es más compleja, así que te dejamos una posible solución:
-
-    ```arduino linenums="1"
-    // Regulador de brillo: SR sube el brillo del LED verde y SL lo baja
-
-    const int pulsadorSR = 2;  // pulsador derecho conectado al pin 2
-    const int pulsadorSL = 3;  // pulsador izquierdo conectado al pin 3
-    const int ledVerde = 11;   // LED verde conectado al pin 11
-
-    const int espera = 10;  // velocidad a la que cambia el brillo, en milisegundos
-
-    int estadoSR = LOW;  // guarda si SR está pulsado (HIGH) o no (LOW)
-    int estadoSL = LOW;  // guarda si SL está pulsado (HIGH) o no (LOW)
-    int brillo = 0;      // guarda el brillo del LED (de 0 a 255)
-
-    void setup() {
-      pinMode(pulsadorSR, INPUT);
-      pinMode(pulsadorSL, INPUT);
-      pinMode(ledVerde, OUTPUT);
-    }
-
-    void loop() {
-      estadoSR = digitalRead(pulsadorSR);
-      estadoSL = digitalRead(pulsadorSL);
-
-      // SR pulsado: sube el brillo sin pasar de 255
-      if (estadoSR == HIGH) {
-        if (brillo < 255) {
-          brillo = brillo + 1;
-        }
-      }
-
-      // SL pulsado: baja el brillo sin bajar de 0
-      if (estadoSL == HIGH) {
-        if (brillo > 0) {
-          brillo = brillo - 1;
-        }
-      }
-
-      analogWrite(ledVerde, brillo);  // enciende el LED con el brillo actual
-
-      delay(espera);
-    }
-    ```
-
-    La variable `brillo` es **global** (se declara fuera de las funciones) para que **recuerde** su valor de una vuelta de `loop()` a la siguiente. Si sueltas los dos pulsadores, no cambia y el LED se queda con el último brillo.

@@ -111,79 +111,10 @@ Prueba a realizar algunas de las siguientes modificaciones al proyecto:
 
     **Pista:** envía el valor del micrófono al ordenador con `Serial.begin(9600)` en `setup()` y `Serial.println(valorSonido)` en `loop()`, como en el proyecto [El echidna dice la temperatura](08-echidna-dice-temperatura.md). Además del **Monitor serie**, prueba el **Serial Plotter** (menú **Herramientas > Serial Plotter**), que dibuja los valores como una gráfica y deja ver muy bien cómo cambia el sonido.
 
-    **Ayuda:** añade al final de `setup()`:
-
-    ```arduino
-      Serial.begin(9600);  // abre la comunicación con el ordenador
-    ```
-
-    y en `loop()`, justo después de leer el micrófono:
-
-    ```arduino
-      Serial.println(valorSonido);  // envía el valor al Monitor serie
-    ```
-
-    Cuando sepas los valores, cambia los números de las constantes `umbralSilencio` y `umbralRuido`.
-
 2. **Una lectura más estable:** Para que los LED no parpadeen, en lugar de usar cada lectura del micrófono, calcula la **media** de varias (por ejemplo, de `32`) y usa esa media en los condicionales.
 
     **Pista:** necesitas una variable que vaya sumando las lecturas (`suma`). Pon la suma a `0`, haz las lecturas con un bucle `for`, como en el proyecto [Brillo LED](05-brillo-led.md), y al terminar divide la suma entre el número de lecturas.
 
-    **Ayuda:** declara la constante `muestras` y la variable `suma`:
-
-    ```arduino
-    const int muestras = 32;  // número de lecturas para calcular la media
-
-    int suma = 0;  // va sumando las lecturas para calcular la media
-    ```
-
-    y, en `loop()`, cambia la lectura del micrófono por:
-
-    ```arduino
-      // suma varias lecturas del micrófono y calcula la media
-      suma = 0;
-      for (int i = 0; i < muestras; i++) {
-        suma = suma + analogRead(microfono);
-      }
-      valorSonido = suma / muestras;
-    ```
-
-    Es importante poner `suma = 0` al principio de cada vuelta: si no, la suma iría acumulando las lecturas de las vueltas anteriores y la media saldría cada vez más grande. La variable `i` solo sirve para contar las lecturas: el bucle se repite mientras `i` sea menor que `muestras`, y `i++` es una forma corta de escribir `i = i + 1`.
-
 3. **Encendido por palmada:** Programa un interruptor que funcione con palmadas: con una palmada, el **LED rojo** se enciende, y con otra palmada, se apaga.
 
     **Pista:** una palmada da un valor muy alto en el micrófono, así que basta con un solo umbral. Necesitas una variable que recuerde si el LED está encendido o apagado, como en el pulsador con memoria del proyecto [Interruptor de luz](03-interruptor-de-luz.md). Después de cada palmada, espera un poco con `delay` para que el final del sonido no cuente como otra palmada.
-
-    **Ayuda:** esta mejora es más compleja, así que te dejamos una posible solución:
-
-    ```arduino linenums="1"
-    // Encendido por palmada: cada palmada enciende o apaga el LED rojo
-
-    const int microfono = A7;  // micrófono conectado al pin A7
-    const int ledRojo = 13;    // LED rojo conectado al pin 13
-
-    const int umbralPalmada = 20;  // por encima de este valor hay una palmada
-
-    int estadoLED = LOW;  // recuerda si el LED está apagado o encendido
-
-    void setup() {
-      pinMode(ledRojo, OUTPUT);
-      analogReference(INTERNAL);  // referencia de 1,1 V
-    }
-
-    void loop() {
-      if (analogRead(microfono) > umbralPalmada) {
-        // palmada: cambia el LED al estado contrario
-        if (estadoLED == LOW) {
-          estadoLED = HIGH;
-        } else {
-          estadoLED = LOW;
-        }
-        digitalWrite(ledRojo, estadoLED);
-
-        delay(300);  // espera a que termine el sonido de la palmada
-      }
-    }
-    ```
-
-    Cada vez que el micrófono supera `umbralPalmada`, el programa cambia el LED al estado contrario y actualiza la variable **`estadoLED`**. El `delay(300)` hace que el programa no vuelva a escuchar hasta que termine el sonido de la palmada; si no, una sola palmada podría encender y apagar el LED varias veces seguidas. Si el LED cambia al hablar, sube el umbral; si no reacciona a las palmadas, bájalo.

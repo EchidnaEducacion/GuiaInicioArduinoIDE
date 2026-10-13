@@ -77,55 +77,10 @@ Una vez que consigas hacer parpadear el LED, prueba a realizar estas modificacio
 
     **Pista:** recuerda que `delay` cuenta en milisegundos: 0,2 segundos son `200`.
 
-    **Ayuda:** solo cambia la función `loop()`:
-
-    ```arduino
-    void loop() {
-      digitalWrite(ledRojo, HIGH);  // enciende el LED
-      delay(200);                   // espera 0,2 segundos
-      digitalWrite(ledRojo, LOW);   // apaga el LED
-      delay(200);                   // espera 0,2 segundos
-    }
-    ```
-
 2. **Sombra de señal:** Intenta que el LED esté encendido mucho tiempo (`2` segundos) y apagado muy poco tiempo (`0.1` segundos).
 
     **Pista:** cada `delay` controla una fase: el primero, cuánto tiempo está encendido el LED, y el segundo, cuánto tiempo está apagado.
 
-    **Ayuda:** solo cambia la función `loop()`:
-
-    ```arduino
-    void loop() {
-      digitalWrite(ledRojo, HIGH);  // enciende el LED
-      delay(2000);                  // encendido 2 segundos
-      digitalWrite(ledRojo, LOW);   // apaga el LED
-      delay(100);                   // apagado 0,1 segundos
-    }
-    ```
-
 3. **Parpadeo alterno:** Haz que el LED rojo y el LED verde se enciendan por turnos: cuando uno está encendido, el otro está apagado.
 
     **Pista:** declara otra constante para el LED verde (pin `11`) y no olvides indicar en `setup()` que su pin también es una salida.
-
-    **Ayuda:**
-
-    ```arduino linenums="1"
-    // Parpadeo alterno: el LED rojo y el verde se encienden por turnos
-
-    const int ledRojo = 13;   // LED rojo conectado al pin 13
-    const int ledVerde = 11;  // LED verde conectado al pin 11
-
-    void setup() {
-      pinMode(ledRojo, OUTPUT);   // el pin del LED rojo es una salida
-      pinMode(ledVerde, OUTPUT);  // el pin del LED verde es una salida
-    }
-
-    void loop() {
-      digitalWrite(ledRojo, HIGH);  // enciende el rojo
-      digitalWrite(ledVerde, LOW);  // apaga el verde
-      delay(1000);                  // espera 1 segundo
-      digitalWrite(ledRojo, LOW);   // apaga el rojo
-      digitalWrite(ledVerde, HIGH); // enciende el verde
-      delay(1000);                  // espera 1 segundo
-    }
-    ```

@@ -113,98 +113,10 @@ Prueba a realizar algunas de las siguientes modificaciones al proyecto:
 
     **Pista:** cuanto más pequeño sea `paso`, más valores toma cada color y más combinaciones hay. Para que cada color llegue justo a `255`, elige un paso que divida exactamente a `255`, como `85`, `51`, `17`, `15` o `5`. Si hay muchos colores, baja también la `espera` para que la vuelta no dure demasiado.
 
-    **Ayuda:** cambia solo las dos constantes:
-
-    ```arduino
-    const int paso = 15;    // 18 valores por color: 0, 15, 30... 255
-    const int espera = 10;  // cada color se ve 10 milisegundos
-    ```
-
-    Ahora cada color toma 18 valores: 18 × 18 × 18 = **5832 colores**, y la vuelta completa dura aproximadamente un minuto.
-
 2. **De rojo a azul:** Haz que el LED RGB pase poco a poco del **rojo** al **azul**, pasando por los morados, y después vuelva del azul al rojo.
 
     **Pista:** basta con un `for` para cada sentido (no anidados). Mientras el azul sube, el rojo baja: si el azul vale `valor`, el rojo vale `255 - valor`, así que entre los dos siempre suman `255`. Usa un paso pequeño (`5`) y una espera corta (`30`) para que el cambio sea suave.
 
-    **Ayuda:** cambia las constantes `paso` y `espera` y la función `loop()`:
-
-    ```arduino
-    const int paso = 5;     // los colores cambian de 5 en 5
-    const int espera = 30;  // tiempo entre un color y el siguiente, en milisegundos
-    ```
-
-    ```arduino
-    void loop() {
-      // del rojo al azul: el azul sube mientras el rojo baja
-      for (int valor = 0; valor <= 255; valor = valor + paso) {
-        analogWrite(rgbRojo, 255 - valor);
-        analogWrite(rgbAzul, valor);
-        delay(espera);
-      }
-
-      // del azul al rojo: el azul baja mientras el rojo sube
-      for (int valor = 255; valor >= 0; valor = valor - paso) {
-        analogWrite(rgbRojo, 255 - valor);
-        analogWrite(rgbAzul, valor);
-        delay(espera);
-      }
-    }
-    ```
-
 3. **Termómetro de colores:** Usa el **sensor de temperatura** para que el LED RGB cambie de color según la temperatura: **azul** si hace frío (menos de `20` ºC), **verde** si la temperatura es agradable y **rojo** si hace calor (más de `28` ºC).
 
     **Pista:** lee la temperatura como en el proyecto [El echidna dice la temperatura](08-echidna-dice-temperatura.md) y usa `if`, `else if` y `else`, como en el medidor de luz del [Interruptor crepuscular](06-interruptor-crepuscular.md). Para cada color, da `255` al que quieres encender y `0` a los otros dos con `analogWrite`.
-
-    **Ayuda:** esta mejora es más compleja, así que te dejamos una posible solución:
-
-    ```arduino linenums="1"
-    // Termómetro de colores: el LED RGB cambia de color según la temperatura
-
-    const int sensorTemperatura = A6;  // sensor de temperatura conectado al pin A6
-    const int rgbRojo = 9;             // LED RGB: color rojo en el pin 9
-    const int rgbVerde = 5;            // LED RGB: color verde en el pin 5
-    const int rgbAzul = 6;             // LED RGB: color azul en el pin 6
-
-    const float umbralFrio = 20.0;   // por debajo de esta temperatura hace frío
-    const float umbralCalor = 28.0;  // por encima de esta temperatura hace calor
-
-    int lectura = 0;          // guarda el valor que lee el sensor (de 0 a 1023)
-    float temperatura = 0.0;  // guarda la temperatura en grados Celsius, con decimales
-
-    void setup() {
-      pinMode(rgbRojo, OUTPUT);
-      pinMode(rgbVerde, OUTPUT);
-      pinMode(rgbAzul, OUTPUT);
-      Serial.begin(9600);
-    }
-
-    void loop() {
-      lectura = analogRead(sensorTemperatura);
-      temperatura = (lectura * 0.4658) - 50.0;
-
-      Serial.print("Temperatura: ");
-      Serial.print(temperatura);
-      Serial.println(" ºC");
-
-      if (temperatura < umbralFrio) {
-        // frío: azul
-        analogWrite(rgbRojo, 0);
-        analogWrite(rgbVerde, 0);
-        analogWrite(rgbAzul, 255);
-      } else if (temperatura > umbralCalor) {
-        // calor: rojo
-        analogWrite(rgbRojo, 255);
-        analogWrite(rgbVerde, 0);
-        analogWrite(rgbAzul, 0);
-      } else {
-        // temperatura agradable: verde
-        analogWrite(rgbRojo, 0);
-        analogWrite(rgbVerde, 255);
-        analogWrite(rgbAzul, 0);
-      }
-
-      delay(1000);  // espera 1 segundo hasta la siguiente medida
-    }
-    ```
-
-    El programa usa dos umbrales: si la temperatura está por debajo de `umbralFrio`, el LED se pone azul; si está por encima de `umbralCalor`, rojo; y si no se cumple ninguna de las dos condiciones, está entre los dos umbrales y se pone verde. Para probarlo, calienta el sensor tocándolo suavemente con el dedo y observa la temperatura en el Monitor serie; si hace falta, ajusta los umbrales a la temperatura de tu aula.

@@ -98,97 +98,10 @@ Prueba a realizar algunas de las siguientes modificaciones al proyecto:
 
     **Pista:** declara la constante del pulsador SR (pin `2`) y configúralo como entrada. En `loop()`, mete todo lo que había dentro de un `if` que compruebe si SR está pulsado: `if (digitalRead(pulsadorSR) == HIGH)`.
 
-    **Ayuda:** además de la constante y el `pinMode` del pulsador, cambia la función `loop()`:
-
-    ```arduino
-    void loop() {
-      if (digitalRead(pulsadorSR) == HIGH) {
-        // SR pulsado: mide y dice la temperatura
-        lectura = analogRead(sensorTemperatura);
-        temperatura = (lectura * 0.4658) - 50.0;
-
-        Serial.print("Hola, ahora hace una temperatura de ");
-        Serial.print(temperatura);
-        Serial.println(" ºC");
-
-        delay(1000);  // espera 1 segundo para no repetir la frase
-      }
-    }
-    ```
-
 2. **Grados Fahrenheit:** Añade el **pulsador SL** para que, al pulsarlo, la placa diga la temperatura en **grados Fahrenheit** (ºF). Con SR seguirá diciéndola en grados Celsius.
 
     **Pista:** para pasar de grados Celsius a Fahrenheit, multiplica por `1.8` y suma `32`. Guarda el resultado en una nueva variable `float` llamada `fahrenheit` y añade un segundo `if` para el pulsador SL (pin `3`).
 
-    **Ayuda:** declara la constante del pulsador SL y la variable `fahrenheit`, configura SL como entrada y cambia la función `loop()`:
-
-    ```arduino
-    void loop() {
-      // mide la temperatura en las dos escalas
-      lectura = analogRead(sensorTemperatura);
-      temperatura = (lectura * 0.4658) - 50.0;
-      fahrenheit = temperatura * 1.8 + 32;
-
-      if (digitalRead(pulsadorSR) == HIGH) {
-        // SR pulsado: temperatura en grados Celsius
-        Serial.print("Hola, ahora hace una temperatura de ");
-        Serial.print(temperatura);
-        Serial.println(" ºC");
-        delay(1000);
-      }
-
-      if (digitalRead(pulsadorSL) == HIGH) {
-        // SL pulsado: temperatura en grados Fahrenheit
-        Serial.print("Hola, ahora hace una temperatura de ");
-        Serial.print(fahrenheit);
-        Serial.println(" ºF");
-        delay(1000);
-      }
-    }
-    ```
-
 3. **Frío o calor:** Partiendo del programa original, haz que el **LED rojo** se encienda cuando la temperatura supere un valor (por ejemplo, `28` ºC) y que, si no lo supera, se encienda el **LED verde**. Para probarlo, calienta el sensor tocándolo suavemente con el dedo.
 
     **Pista:** declara las constantes del LED rojo (pin `13`) y del LED verde (pin `11`) y configúralos como salidas. Guarda el valor límite en una constante `float` llamada `umbral` y compáralo con la temperatura con `if ... else`, como en el interruptor crepuscular.
-
-    **Ayuda:** esta mejora cambia varias partes del programa, así que te dejamos una posible solución:
-
-    ```arduino linenums="1"
-    // Frío o calor: el LED rojo avisa cuando la temperatura supera el umbral
-
-    const int sensorTemperatura = A6;  // sensor de temperatura conectado al pin A6
-    const int ledRojo = 13;            // LED rojo conectado al pin 13
-    const int ledVerde = 11;           // LED verde conectado al pin 11
-
-    const float umbral = 28.0;  // por encima de esta temperatura hace calor
-
-    int lectura = 0;          // guarda el valor que lee el sensor (de 0 a 1023)
-    float temperatura = 0.0;  // guarda la temperatura en grados Celsius, con decimales
-
-    void setup() {
-      Serial.begin(9600);
-      pinMode(ledRojo, OUTPUT);
-      pinMode(ledVerde, OUTPUT);
-    }
-
-    void loop() {
-      lectura = analogRead(sensorTemperatura);
-      temperatura = (lectura * 0.4658) - 50.0;
-
-      Serial.print("Hola, ahora hace una temperatura de ");
-      Serial.print(temperatura);
-      Serial.println(" ºC");
-
-      if (temperatura > umbral) {
-        digitalWrite(ledRojo, HIGH);  // calor: LED rojo
-        digitalWrite(ledVerde, LOW);
-      } else {
-        digitalWrite(ledRojo, LOW);   // sin calor: LED verde
-        digitalWrite(ledVerde, HIGH);
-      }
-
-      delay(1000);  // espera 1 segundo hasta la siguiente medida
-    }
-    ```
-
-    El umbral es de tipo `float` porque lo comparamos con la temperatura, que tiene decimales. Si en tu aula hace más calor o más frío, cambia el valor de `umbral` para que el LED rojo se encienda solo al calentar el sensor con el dedo.

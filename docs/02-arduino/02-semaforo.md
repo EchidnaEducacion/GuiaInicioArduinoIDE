@@ -91,117 +91,12 @@ Prueba a perfeccionar tu semáforo con algunas de estas tres mejoras que te prop
 
     **Pista:** puedes copiar tres veces el encendido y el apagado del LED naranja o, mejor, usar un bucle `for`, que repite las instrucciones de su interior el número de veces que le indiquemos: `for (int i = 0; i < 3; i++) { ... }` las repite 3 veces.
 
-    **Ayuda:** solo cambia la función `loop()`:
-
-    ```arduino
-    void loop() {
-      // fase verde: 5 segundos
-      digitalWrite(ledVerde, HIGH);
-      delay(5000);
-      digitalWrite(ledVerde, LOW);
-
-      // fase naranja: 3 parpadeos rápidos
-      for (int i = 0; i < 3; i++) {
-        digitalWrite(ledNaranja, HIGH);
-        delay(300);
-        digitalWrite(ledNaranja, LOW);
-        delay(300);
-      }
-
-      // fase roja: 5 segundos
-      digitalWrite(ledRojo, HIGH);
-      delay(5000);
-      digitalWrite(ledRojo, LOW);
-    }
-    ```
-
 2. **Semáforo de peatones:** Usa el **LED RGB** de la placa como semáforo de peatones: debe estar en **rojo** mientras los coches tienen el verde o el naranja, y en **verde** cuando los coches tienen el rojo.
 
     **Pista:** el LED RGB tiene un LED rojo (pin `9`) y uno verde (pin `5`) que se encienden y se apagan con `digitalWrite`, como los demás. Declara una constante para cada uno y configúralos como salidas.
-
-    **Ayuda:**
-
-    ```arduino linenums="1"
-    // Semáforo con semáforo de peatones en el LED RGB
-
-    const int ledVerde = 11;    // LED verde conectado al pin 11
-    const int ledNaranja = 12;  // LED naranja conectado al pin 12
-    const int ledRojo = 13;     // LED rojo conectado al pin 13
-    const int peatonRojo = 9;   // rojo del LED RGB conectado al pin 9
-    const int peatonVerde = 5;  // verde del LED RGB conectado al pin 5
-
-    void setup() {
-      pinMode(ledVerde, OUTPUT);
-      pinMode(ledNaranja, OUTPUT);
-      pinMode(ledRojo, OUTPUT);
-      pinMode(peatonRojo, OUTPUT);
-      pinMode(peatonVerde, OUTPUT);
-    }
-
-    void loop() {
-      // coches en verde: peatones en rojo
-      digitalWrite(peatonRojo, HIGH);
-      digitalWrite(ledVerde, HIGH);
-      delay(5000);
-      digitalWrite(ledVerde, LOW);
-
-      // coches en naranja: peatones siguen en rojo
-      digitalWrite(ledNaranja, HIGH);
-      delay(2000);
-      digitalWrite(ledNaranja, LOW);
-
-      // coches en rojo: peatones en verde
-      digitalWrite(peatonRojo, LOW);
-      digitalWrite(peatonVerde, HIGH);
-      digitalWrite(ledRojo, HIGH);
-      delay(5000);
-      digitalWrite(ledRojo, LOW);
-      digitalWrite(peatonVerde, LOW);
-    }
-    ```
 
 3. **Semáforo sonoro adaptado:** Añade el **zumbador** de la placa para avisar a personas con discapacidad visual:
     * **Fase verde:** Sonido intermitente lento.
     * **Fase roja:** Silencio.
 
     **Pista:** el zumbador está en el pin `10`. `analogWrite(zumbador, 125)` lo hace sonar y `analogWrite(zumbador, 0)` lo apaga. Para el sonido intermitente, usa un bucle `for` que repita 5 veces: sonar 0,5 segundos y callar 0,5 segundos (5 × 1 s = los 5 segundos de la fase verde).
-
-    **Ayuda:**
-
-    ```arduino linenums="1"
-    // Semáforo sonoro: pitidos lentos en verde y silencio en rojo
-
-    const int ledVerde = 11;    // LED verde conectado al pin 11
-    const int ledNaranja = 12;  // LED naranja conectado al pin 12
-    const int ledRojo = 13;     // LED rojo conectado al pin 13
-    const int zumbador = 10;    // zumbador conectado al pin 10
-
-    void setup() {
-      pinMode(ledVerde, OUTPUT);
-      pinMode(ledNaranja, OUTPUT);
-      pinMode(ledRojo, OUTPUT);
-      pinMode(zumbador, OUTPUT);
-    }
-
-    void loop() {
-      // fase verde: 5 pitidos lentos (5 segundos)
-      digitalWrite(ledVerde, HIGH);
-      for (int i = 0; i < 5; i++) {
-        analogWrite(zumbador, 125);  // suena
-        delay(500);
-        analogWrite(zumbador, 0);    // calla
-        delay(500);
-      }
-      digitalWrite(ledVerde, LOW);
-
-      // fase naranja: 2 segundos
-      digitalWrite(ledNaranja, HIGH);
-      delay(2000);
-      digitalWrite(ledNaranja, LOW);
-
-      // fase roja: 5 segundos en silencio
-      digitalWrite(ledRojo, HIGH);
-      delay(5000);
-      digitalWrite(ledRojo, LOW);
-    }
-    ```

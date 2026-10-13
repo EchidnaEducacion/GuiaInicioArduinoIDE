@@ -102,107 +102,10 @@ Prueba a realizar algunas de las siguientes modificaciones al proyecto:
 
     **Pista:** envía los dos valores al ordenador y ábrelos con el **Serial Plotter** (menú **Herramientas > Serial Plotter**), que los dibuja como una gráfica, como en la primera mejora del [Vúmetro](10-vumetro.md). Si escribes antes de cada valor un nombre seguido de dos puntos (`X:` e `Y:`), el Serial Plotter dibuja cada eje con su color y su nombre.
 
-    **Ayuda:** este programa solo lee el joystick y envía los dos ejes al ordenador:
-
-    ```arduino linenums="1"
-    // Lee el joystick: dibuja los ejes X e Y en el Serial Plotter
-
-    const int joystickX = A0;  // eje X del joystick en el pin A0
-    const int joystickY = A1;  // eje Y del joystick en el pin A1
-
-    int valorX = 0;  // guarda la posición del eje X
-    int valorY = 0;  // guarda la posición del eje Y
-
-    void setup() {
-      Serial.begin(9600);  // abre la comunicación a 9600 baudios
-    }
-
-    void loop() {
-      valorX = analogRead(joystickX);
-      valorY = analogRead(joystickY);
-
-      Serial.print("X:");      // nombre del eje X
-      Serial.print(valorX);    // valor del eje X
-      Serial.print(" Y:");     // nombre del eje Y
-      Serial.println(valorY);  // valor del eje Y y salto de línea
-
-      delay(100);  // diez medidas por segundo
-    }
-    ```
-
 2. **Mando de colores:** Usa los dos ejes del joystick para mezclar colores en el **LED RGB**: el eje X controla el **rojo** y el eje Y, el **azul**. Con la palanca en el centro, el LED se verá morado, y al moverla cambiará la mezcla.
 
     **Pista:** lee los dos ejes y convierte cada uno, de `0` a `1023`, en una intensidad de `0` a `255` con `map`. El rojo del LED RGB está en el pin `9` y el azul, en el `6`.
 
-    **Ayuda:** esta mejora cambia varias partes del programa, así que te dejamos una posible solución:
-
-    ```arduino linenums="1"
-    // Mando de colores: el eje X controla el rojo y el eje Y, el azul
-
-    const int joystickX = A0;  // eje X del joystick en el pin A0
-    const int joystickY = A1;  // eje Y del joystick en el pin A1
-    const int rgbRojo = 9;     // LED RGB: color rojo en el pin 9
-    const int rgbAzul = 6;     // LED RGB: color azul en el pin 6
-
-    int valorX = 0;  // guarda la posición del eje X
-    int valorY = 0;  // guarda la posición del eje Y
-    int rojo = 0;    // intensidad del rojo (de 0 a 255)
-    int azul = 0;    // intensidad del azul (de 0 a 255)
-
-    void setup() {
-      pinMode(rgbRojo, OUTPUT);
-      pinMode(rgbAzul, OUTPUT);
-    }
-
-    void loop() {
-      valorX = analogRead(joystickX);
-      valorY = analogRead(joystickY);
-
-      // cada eje, de 0 a 1023, pasa a una intensidad de 0 a 255
-      rojo = map(valorX, 0, 1023, 0, 255);
-      azul = map(valorY, 0, 1023, 0, 255);
-
-      analogWrite(rgbRojo, rojo);
-      analogWrite(rgbAzul, azul);
-    }
-    ```
-
 3. **Theremín:** Convierte la placa en un **theremín**, un instrumento que se toca sin tocarlo: al mover el joystick, el **zumbador** cambia de nota, más grave hacia la izquierda y más aguda hacia la derecha. Con el joystick en el centro, silencio.
 
     **Pista:** convierte la posición del joystick en una frecuencia con `map`, por ejemplo, de `200` Hz a la izquierda a `1000` Hz a la derecha, y hazla sonar con `tone(zumbador, frecuencia)`. Para que no suene todo el rato, comprueba si el joystick está **fuera** del centro: para saber si se cumple **una u otra** condición se usa `||` («o»), `if (valorX < centroMin || valorX > centroMax)`. Si está en el centro, calla el zumbador con `noTone(zumbador)`.
-
-    **Ayuda:** esta mejora es más compleja, así que te dejamos una posible solución:
-
-    ```arduino linenums="1"
-    // Theremín: el eje X del joystick elige la nota del zumbador
-
-    const int joystickX = A0;  // eje X del joystick en el pin A0
-    const int zumbador = 10;   // zumbador conectado al pin 10
-
-    const int centroMin = 492;  // zona del centro: de 492...
-    const int centroMax = 532;  // ...a 532
-
-    const int notaGrave = 200;   // frecuencia a la izquierda, en Hz
-    const int notaAguda = 1000;  // frecuencia a la derecha, en Hz
-
-    int valorX = 0;      // guarda la posición del joystick en el eje X
-    int frecuencia = 0;  // guarda la nota que suena, en Hz
-
-    void setup() {
-      pinMode(zumbador, OUTPUT);
-    }
-
-    void loop() {
-      valorX = analogRead(joystickX);
-
-      if (valorX < centroMin || valorX > centroMax) {
-        // fuera del centro: suena una nota según la posición
-        frecuencia = map(valorX, 0, 1023, notaGrave, notaAguda);
-        tone(zumbador, frecuencia);
-      } else {
-        noTone(zumbador);  // en el centro: silencio
-      }
-    }
-    ```
-
-    Como `tone` sigue sonando hasta que llamamos a `noTone`, la nota cambia en cuanto movemos el joystick, sin cortes.
