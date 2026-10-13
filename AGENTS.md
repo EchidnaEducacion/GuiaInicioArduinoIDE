@@ -40,11 +40,21 @@ alumnado que empiezan con la placa.
   `setup()`, `loop()`...).
 - **Mejóralo (3)**: tres propuestas numeradas, de menos a más difícil. Cada
   una termina con **Pista:** (información sobre cómo hacerlo: una función,
-  un valor, una idea) y **Ayuda:** (el código de la solución, en bloque
-  ```` ```arduino ```` sangrado 4 espacios dentro de la lista). Si la
-  Ayuda solo cambia una parte (por ejemplo, `loop()`), basta con esa parte
-  sin números de línea; si es un programa completo, con
-  `linenums="1"`.
+  un valor, una idea). La solución **no** va en el proyecto, sino en la
+  Guía docente.
+- **Guía docente** (`docs/docente/guia-docente.md`): una sola página para
+  el profesorado, **fuera del `nav`** y sin enlace desde la guía del
+  alumnado (es pública: se llega por su URL o por su PDF). Empieza con
+  `# Guía docente` y cada apartado es un `##` (`## Presentación`,
+  `## Soluciones de Mejóralo` y, más adelante, los de programación
+  didáctica). En las soluciones, un `### N.M Título` por proyecto (como el
+  `# Título` del proyecto) y un `#### Mejora M. Título` por propuesta, con
+  el código en bloque ```` ```arduino ````: si solo cambia una parte (por
+  ejemplo, `loop()`), una frase que diga qué cambia y esa parte sin
+  números de línea; si es un programa completo, «Posible solución:» y el
+  programa con `linenums="1"`. Después del código puede ir una explicación.
+  Si añades, eliminas o renumeras un proyecto o una mejora, actualiza
+  también aquí sus soluciones.
 - **Introducción**: cómo instalar y abrir Arduino IDE, su entorno, la
   elección de placa y puerto, la estructura `setup()`/`loop()`, cómo cargar
   un programa y la tabla de pines de la placa se explican **solo** en
@@ -114,16 +124,16 @@ alumnado que empiezan con la placa.
   I2C); si se usan, se explica cómo instalarlas.
 - Los pines, la placa y el procesador salen de la tabla de
   la introducción, que da el autor: no los inventes.
-- Cada programa (y cada **Ayuda**, insertada en el programa completo)
-  debe compilar:
+- Cada programa (y cada solución de la Guía docente, insertada en el
+  programa completo) debe compilar:
   `arduino-cli compile --fqbn arduino:avr:nano:cpu=atmega328 <carpeta>` (el `.ino` debe
   llamarse como su carpeta).
 - **Carpeta `codigo/`**: cada programa de la guía también está en su `.ino`,
   listo para abrir en Arduino IDE: `codigo/NN-nombre/NN-nombre/` para el
   programa de **Programamos** y `codigo/NN-nombre/NN-nombre-mejoraM/` para
-  cada mejora (con la **Ayuda** ya insertada en el programa completo y un
-  primer comentario con el nombre de la mejora). Si cambias el código de un
-  `.md`, cambia también su `.ino`, y al revés; si añades, eliminas o
+  cada mejora (con la solución de la Guía docente ya insertada en el
+  programa completo y un primer comentario con el nombre de la mejora). Si
+  cambias el código de un `.md`, cambia también su `.ino`, y al revés; si añades, eliminas o
   renumeras un proyecto, haz lo mismo con su carpeta.
 
 ## Estructura del repositorio
@@ -131,7 +141,8 @@ alumnado que empiezan con la placa.
 - `zensical.toml`: configuración del sitio y navegación (`nav`).
 - `codigo/`: los programas de los proyectos y de sus mejoras en `.ino`.
 - `docs/`: contenido Markdown (`index.md` es la página de inicio web y no
-  entra en el PDF).
+  entra en el PDF). `docs/docente/guia-docente.md`: la Guía docente (fuera
+  del `nav`).
 - `docs/assets/images/`, `docs/assets/fonts/` (Exo y Open Sans para el PDF),
   `docs/assets/stylesheets/extra.css` (identidad visual de la web).
 - `scripts/guia_nav.py`: recorrido común del `nav` (usa `tomllib`: Python
@@ -140,7 +151,9 @@ alumnado que empiezan con la placa.
   `site/proyectos-inicio-arduino.pdf` uniendo todas las páginas ya
   construidas en un único documento (portada maquetada en HTML, índice con
   página real de secciones y proyectos, un salto de página por sección y por
-  proyecto). Requiere `zensical build --clean` previo.
+  proyecto). Generan también `site/guia-docente.pdf` con la Guía docente
+  (misma portada, índice y estilos; cada `##` es un capítulo y cada `###`,
+  una subsección en página nueva). Requiere `zensical build --clean` previo.
 - `.github/workflows/docs.yml`: publicación en GitHub Pages (web + PDF) al
   hacer push a `main`. `.gitlab-ci.yml`: GitLab Pages (sin PDF).
 
@@ -158,7 +171,7 @@ Si el Python del sistema es anterior a 3.11 (Ubuntu 22.04), crea el entorno
 con uv: `uv venv --python 3.12 .venv` y
 `uv pip install --python .venv -r requirements.txt`.
 
-Revisa la web (`zensical serve`) y el PDF: imágenes visibles, listas y
+Revisa la web (`zensical serve`) y los dos PDF: imágenes visibles, listas y
 bloques de código bien formados y posición correcta en la navegación.
 
 Si has cambiado algún programa, comprueba que todos los de `codigo/`
@@ -173,8 +186,9 @@ for d in $(find codigo -name '*.ino' -exec dirname {} \; | sort); do
 done
 ```
 
-Y que coinciden con los `.md`: el programa de **Programamos** y las
-**Ayuda** completas deben ser idénticos a su `.ino`.
+Y que coinciden con los `.md`: el programa de **Programamos** de cada
+proyecto y las soluciones completas de la Guía docente deben ser idénticos a
+su `.ino`.
 
 ## Licencia
 

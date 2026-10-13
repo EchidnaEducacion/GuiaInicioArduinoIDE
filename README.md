@@ -39,7 +39,17 @@ Arduino IDE, conexión de la placa, estructura de un programa y pines.
 
 Todos los proyectos siguen la misma estructura: `1. Qué vamos a hacer` (con
 `1.1 Qué vamos a aprender` y `1.2 Qué vamos a usar`),
-`2. Programamos` y `3. Mejóralo`.
+`2. Programamos` y `3. Mejóralo`. En **Mejóralo**, cada propuesta da solo una
+**Pista**; las soluciones están en la Guía docente.
+
+### Guía docente
+
+La [Guía docente](docs/docente/guia-docente.md) es una página aparte para el
+profesorado, fuera de la navegación de la web y sin enlace desde la guía del
+alumnado. De momento recoge las soluciones de **Mejóralo** de todos los
+proyectos; más adelante tendrá apartados de programación didáctica. Se
+publica en `<sitio>/docente/guia-docente/` y como PDF propio
+(`<sitio>/guia-docente.pdf`).
 
 ### Programas
 
@@ -108,6 +118,10 @@ un único documento y lo maqueta con WeasyPrint usando `scripts/print.css`:
 portada, índice con numeración de página real y un salto de página al
 empezar cada proyecto. Genera `site/proyectos-inicio-arduino.pdf`.
 
+El mismo script genera también `site/guia-docente.pdf` a partir de la Guía
+docente, con la misma portada, índice y estilos: cada `##` del `.md` es un
+capítulo y cada `###`, una subsección que empieza en página nueva.
+
 En Debian/Ubuntu, WeasyPrint necesita estas bibliotecas del sistema y, si
 `pip` no encuentra una rueda precompilada de `lxml` para tu Python, hacen
 falta además las cabeceras de desarrollo de `libxml2`/`libxslt`:
@@ -118,7 +132,8 @@ sudo apt install libpango-1.0-0 libpangoft2-1.0-0 libharfbuzz-subset0 libxml2-de
 
 El flujo de GitHub Actions instala estas dependencias y genera el PDF en
 cada publicación, por lo que queda disponible en
-`<sitio>/proyectos-inicio-arduino.pdf` (enlazado desde la página de inicio).
+`<sitio>/proyectos-inicio-arduino.pdf` (enlazado desde la página de inicio)
+y en `<sitio>/guia-docente.pdf` (sin enlace desde la guía).
 
 ## Comprobar los programas
 
@@ -134,8 +149,8 @@ for d in $(find codigo -name '*.ino' -exec dirname {} \; | sort); do
 done
 ```
 
-Si cambias un programa en la guía, cambia también su `.ino` en `codigo/`, y
-al revés.
+Si cambias un programa en la guía o una solución en la Guía docente, cambia
+también su `.ino` en `codigo/`, y al revés.
 
 ## Licencia
 
