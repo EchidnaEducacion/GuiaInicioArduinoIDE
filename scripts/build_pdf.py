@@ -35,6 +35,11 @@ from guia_nav import (
 PRINT_CSS_PATH = Path(__file__).resolve().parent / "print.css"
 OUTPUT_PATH = SITE_DIR / "proyectos-inicio-arduino.pdf"
 
+# Guía docente: un único .md fuera del nav (ver AGENTS.md) que se imprime
+# en su propio PDF, con la misma maquetación que la guía.
+DOCENTE_MD = "docente/guia-docente.md"
+DOCENTE_OUTPUT_PATH = SITE_DIR / "guia-docente.pdf"
+
 MAX_TOC_DEPTH = 1
 
 
@@ -58,7 +63,13 @@ def find_article(tree, html_path):
     return candidates[0]
 
 
-def render_page(depth, md_path, url_to_id):
+def prepare_article(md_path, url_to_id):
+    """Lee el <article> de una página construida y lo prepara para el PDF.
+
+    Hace absolutas las rutas de imágenes, prefija los id con el de la
+    página y convierte en anclas internas los enlaces a otras páginas que
+    también están en el PDF. Devuelve (article, page_id).
+    """
     html_path = md_to_html(md_path)
     if not html_path.exists():
         raise SystemExit(f"No se encontró la página construida para '{md_path}': {html_path}")
@@ -107,6 +118,12 @@ def render_page(depth, md_path, url_to_id):
                 anchor += f"--{frag}"
             a.set("href", f"#{anchor}")
 
+    return article, page_id
+
+
+def render_page(depth, md_path, url_to_id):
+    article, page_id = prepare_article(md_path, url_to_id)
+
     shift_headings(article, depth)
 
     article.tag = "section"
@@ -123,7 +140,45 @@ def render_page(depth, md_path, url_to_id):
     return lxml_html.tostring(article, encoding="unicode"), toc_entry
 
 
-def render_cover(site_title, site_author):
+def render_docente():
+    """Divide la Guía docente en secciones como las de la guía.
+
+    Cada `##` del .md pasa a ser un capítulo (depth-0, con su página y su
+    pie) y cada `###`, una subsección (depth-1). El `#` se quita porque el
+    título ya está en la portada. Los encabezados suben un nivel para que
+    print.css los trate como los de la guía.
+    """
+    article, _page_id = prepare_article(DOCENTE_MD, {})
+
+    sections = []
+    toc_entries = []
+    current = None
+    for child in list(article):
+        if child.tag == "h1":
+            continue
+        if child.tag in ("h2", "h3"):
+            depth = 0 if child.tag == "h2" else 1
+            classes = f"pdf-page depth-{depth}"
+            if depth == 1 and current is not None and current.get("class").endswith("depth-0") and len(current) == 1:
+                # El primer proyecto sigue en la página del título del
+                # capítulo para no dejar una página casi vacía.
+                classes += " continua"
+            current = lxml_html.Element("section", {"id": f"{child.get('id')}-sec", "class": classes})
+            sections.append(current)
+            toc_entries.append((depth, child.text_content().strip(), child.get("id")))
+        if current is not None:
+            current.append(child)
+
+    for section in sections:
+        for level in range(2, 7):
+            for heading in section.xpath(f".//h{level}"):
+                heading.tag = f"h{level - 1}"
+
+    body = "".join(lxml_html.tostring(s, encoding="unicode") for s in sections)
+    return body, toc_entries
+
+
+def render_cover(site_title, site_author, subtitle):
     logo = (SITE_DIR / "assets/images/Logo_Echidna_I.png").resolve().as_uri()
     portada = (SITE_DIR / "assets/images/LogoEchidnaArduinoIDE.png").resolve().as_uri()
     # A diferencia del manual, este recurso no tiene una ilustración de portada
@@ -136,7 +191,7 @@ def render_cover(site_title, site_author):
   <img class="cover-logo" src="{logo}" alt="Echidna Educación">
   <div class="cover-title">
     <h1>{site_title}</h1>
-    <p class="cover-subtitle">Primeros pasos con la placa EchidnaBlack2 y Arduino IDE</p>
+    <p class="cover-subtitle">{subtitle}</p>
   </div>
   <img class="cover-image" src="{portada}" alt="Erizo de Echidna con antifaz de Arduino">
   <p class="cover-author">{site_author}</p>
@@ -174,10 +229,31 @@ def main():
         if toc_entry:
             toc_entries.append(toc_entry)
 
+    write_pdf(
+        site_title,
+        render_cover(site_title, site_author, "Primeros pasos con la placa EchidnaBlack2 y Arduino IDE"),
+        toc_entries,
+        "".join(body_parts),
+        OUTPUT_PATH,
+    )
+    print(f"PDF generado en {OUTPUT_PATH} ({len(pages)} páginas de contenido)")
+
+    docente_body, docente_toc = render_docente()
+    write_pdf(
+        "Guía docente",
+        render_cover("Guía docente", site_author, site_title),
+        docente_toc,
+        docente_body,
+        DOCENTE_OUTPUT_PATH,
+    )
+    print(f"PDF generado en {DOCENTE_OUTPUT_PATH}")
+
+
+def write_pdf(title, cover, toc_entries, body, output_path):
     document_html = (
         "<!doctype html><html lang=\"es\"><head><meta charset=\"utf-8\">"
-        f"<title>{site_title}</title></head><body>"
-        f"{render_cover(site_title, site_author)}{render_toc(toc_entries)}{''.join(body_parts)}"
+        f"<title>{title}</title></head><body>"
+        f"{cover}{render_toc(toc_entries)}{body}"
         "</body></html>"
     )
 
@@ -189,9 +265,8 @@ def main():
     font_config = FontConfiguration()
     print_css = CSS(filename=str(PRINT_CSS_PATH), font_config=font_config)
     HTML(string=document_html, base_url=base_url).write_pdf(
-        OUTPUT_PATH, stylesheets=[print_css], font_config=font_config
+        output_path, stylesheets=[print_css], font_config=font_config
     )
-    print(f"PDF generado en {OUTPUT_PATH} ({len(pages)} páginas de contenido)")
 
 
 if __name__ == "__main__":

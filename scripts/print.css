@@ -356,6 +356,12 @@ section.depth-1 {
   page: chapter;
 }
 
+/* Guía docente: el primer proyecto de un capítulo sigue en la página del
+   título del capítulo (ver render_docente en build_pdf.py). */
+section.depth-1.continua {
+  break-before: auto;
+}
+
 section.depth-0 > h1 {
   string-set: chapter-title content();
 }
