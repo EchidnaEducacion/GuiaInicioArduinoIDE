@@ -70,7 +70,7 @@ void loop() {
 
 Después de cargar el programa, abre el **Monitor serie** desde el menú **Herramientas > Monitor Serie** y comprueba que la velocidad está en **9600 baudios**. Verás aparecer una frase nueva cada segundo.
 
-IMAGEN MONITOR SERIE
+![Monitor serie con la temperatura](../assets/images/MonitorSerieTemperatura.png "Monitor serie con la temperatura")
 
 **Cómo funciona**:
 
