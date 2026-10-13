@@ -32,7 +32,7 @@ El carácter leído lo guardamos en una variable de tipo **`char`**, que guarda 
 
 Para enviar una orden, abre el Monitor serie (**Herramientas > Monitor Serie**, a **9600 baudios**), escribe la letra en la caja de texto de la parte superior y pulsa **Intro**. Fíjate en que `'H'` y `'h'` son caracteres distintos: escribe las letras en mayúsculas.
 
-IMAGEN ENVIAR MONITOR SERIE
+![Enviar una orden desde el Monitor serie](../assets/images/EnviarMonitorSerie.png "Enviar una orden desde el Monitor serie")
 
 ## 2. Programamos
 
